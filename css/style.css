@@ -1,8 +1,27 @@
 body {
   height: 120vh;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg/1200px-A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg");
+  background-position: center;
+  background-size: cover;
   margin: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: rgb(0, 255, 221);
+  font-size: 30px;
+}
+
+.question-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 19px;
+}
+
+button {
+  border: none;
+  background-color: aqua;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 9px;
+  padding: 5px 12px;
 }
