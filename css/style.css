@@ -1,0 +1,8 @@
+body {
+  height: 120vh;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg/1200px-A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg");
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
