@@ -1,13 +1,13 @@
 body {
   height: 120vh;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg/1200px-A_sanctum_inside_the_Hoysaleshwara_temple_in_Halebidu.jpg");
+  background-image: url("https://i.pinimg.com/564x/3c/24/2c/3c242cbb6a1463527a4db1d2a428e811.jpg");
   background-position: center;
   background-size: cover;
   margin: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgb(0, 255, 221);
+  color: rgb(34, 255, 0);
   font-size: 30px;
 }
 
@@ -25,6 +25,9 @@ button {
   cursor: pointer;
   margin: 9px;
   padding: 5px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
 }
 
 .correct-answer-button {
