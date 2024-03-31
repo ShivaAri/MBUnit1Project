@@ -27,7 +27,7 @@ button {
   padding: 5px 12px;
   justify-content: center;
   align-items: center;
-  border-radius: 45px;
+  border-radius: 45 px;
 }
 
 .correct-answer-button {

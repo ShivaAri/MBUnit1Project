@@ -35,10 +35,15 @@ function tickTock() {
   console.log(remainingTime)
   if (remainingTime === 0) {
     clearInterval(timerIntervalId)
-
   }
 }
+function startTheTimer() {
+  if (timerIntervalId) {
+    clearInterval(timerIntervalId)
 
+  }
+  timerIntervalId = setInterval(tickTock, 450000)
+}
 
 function showMessage(message) {
   messageEl.textContent = message
