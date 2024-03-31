@@ -53,8 +53,8 @@ function showMessage(message) {
 
 function handleClick(evt) {
   
-  const correctButtonIdx = evt.target.id('correct-answer-button')
-  const wrongButtonIdx = evt.target.id ('incorrect-answer-button')
+  const correctButtonIdx = evt.target.id = 'correct-answer-button'
+  const wrongButtonIdx = evt.target.id = 'incorrect-answer-button'
   if (evt.target.id === 'correct-answer-button') {
     correctAnswer = correctAnswer + 1
   } else if(evt.target.id === 'incorrect-answer-button') {
