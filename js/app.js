@@ -7,21 +7,20 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let remainingTime, timerIntervalId,
-
+let remainingTime, timerIntervalId, correctAnswer, incorrectAnswer
+let correctAnswerCount = 0
+let incorrectAnswerCount = 0
 
 /*------------- Cached Element References -----------*/
 const messageEl = document.getElementById('message')
-const correctBtns = document.getElementById('correct-answer-button')
-const incorrectBtns = document.getElementById('incorrect-answer-button')
+const correctBtn = document.getElementById('correct-answer-button')
+const incorrectBtn = document.getElementById('incorrect-answer-button')
 const resetBtn = document.getElementById('reset-button')
 
 /*----------------- Event Listeners ----------------*/
 resetBtn.addEventListener('click', init)
-correctBtns.forEach(function(correctbutton) {
-  correctbutton.addEventListener('click', handleClick)
-})
-
+correctBtn.addEventListener('click', handleClick)
+incorrectBtn.addEventListener('click', handleClick)
 
 /*------------------- Functions ---------------------*/
 init()
@@ -47,4 +46,12 @@ function startTheTimer() {
 
 function showMessage(message) {
   messageEl.textContent = message
+}
+
+function handleClick() {
+  
+}
+
+function render() {
+
 }

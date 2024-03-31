@@ -1,9 +1,9 @@
 body {
   height: 120vh;
-  background-image: url("https://i.pinimg.com/564x/3c/24/2c/3c242cbb6a1463527a4db1d2a428e811.jpg");
+  background-image: url("https://img.freepik.com/free-vector/background-template-with-mandala-designs_1308-69608.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1711670400&semt=ais");
   background-position: center;
   background-size: cover;
-  margin: 0px;
+  margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +18,16 @@ body {
   font-size: larger;
 }
 
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: aqua;
+  margin-bottom: 54px;
+}
+h3 {
+  color: indigo;
+}
 button {
   border: none;
   background-color: rgb(255, 0, 0);
