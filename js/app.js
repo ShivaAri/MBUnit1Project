@@ -32,24 +32,26 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   gameInPlay = false
+  noClickyYet = false
 }
 
 function tickTock() {
   console.log(remainingTime)
   if (remainingTime === 0) {
     clearInterval(timerIntervalId)
+    showMessage(`Time is up for this kathakali...would you like to try it again?`)
   }
 }
 function startTheTimer() {
   if (timerIntervalId) {
     clearInterval(timerIntervalId)
-
+    
   }
   timerIntervalId = setInterval(tickTock, 450000)
 }
 
 function showMessage(message) {
-  messageEl.textContent = message
+  answerEl.textContent = message
 }
 
 function handleClick(evt) {
