@@ -7,7 +7,7 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let remainingTime, timerIntervalId, correctAnswer, incorrectAnswer
+let gameInPlay, remainingTime, timerIntervalId, correctAnswer, incorrectAnswer, noClickyYet
 let correctAnswerCount = 0
 let incorrectAnswerCount = 0
 
@@ -31,6 +31,7 @@ function init() {
   render()
   correctAnswer = 0
   incorrectAnswer = 0
+  gameInPlay = false
 }
 
 function tickTock() {
