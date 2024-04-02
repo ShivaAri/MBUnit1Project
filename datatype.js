@@ -1,6 +1,3 @@
-// const correctAnswers = [1985, 'Sephiroth', 'Shiva, Street Fighter, Counter the Pokémon not the Tera Jewel, Inuyasha, Dance With The IdleDeadline, Perfect Dark, Erudite Eyes]
-
-// const incorrectAnswers = [1998, 1987, 'Kazuya Mishima', 'Ridley', 'Vishnu', 'Brahma', 'Fatal Fury', Tekken, Counter the Tera Jewel, Stay Idle, Dragon Ball Z, Ghost Sweeper Mikami, VHS Glitch, GoldenEye 007, Smash Bros, Unseen Entities, Beat Eat Nest]
 
 const questions = [
   {
