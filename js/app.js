@@ -45,12 +45,14 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   gameInPlay = false
-  noClickyYet = false
 }
 
-
+function gameInPlay() {
+  init()
+}
 function showMessage(message) {
   answerEl.textContent = message
+  render()
 }
 
 function handleClick(evt) {
@@ -63,7 +65,11 @@ function handleClick(evt) {
     whoWantSomeDuckSound.volume = .05
     whoWantSomeDuckSound.play()
 
-  } else if(evt.target.id === 'incorrect-answer-button') {
+  } else if(evt.target.id === 'incorrect-answer-button1') {
+    incorrectAnswer = incorrectAnswer + 1
+    ohSound.volume = .05
+    ohSound.play()
+  } else if(evt.target.id === 'incorrect-answer-button2') {
     incorrectAnswer = incorrectAnswer + 1
     ohSound.volume = .05
     ohSound.play()
@@ -79,6 +85,7 @@ function render() {
 function updateMessage() {
   messageEl.textContent = `${correctAnswer} ${incorrectAnswer}`
   handleClick()
+  render()
 }
 
 
