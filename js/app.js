@@ -7,17 +7,26 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let gameInPlay, remainingTime, timerIntervalId, correctAnswer, incorrectAnswer, noClickyYet
+let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, noClickyYet
 let correctAnswerCount = 0
 let incorrectAnswerCount = 0
+let timeLeft = 45
 
+let timer = setInterval(function() {
+  countdownEl.textContent = timeLeft + ' seconds remain...'
+  timeLeft -= 1
+  if (timeLeft < 0) {
+    countdownEl.textContent = "Time is Up! Were you entertained?"
+  }
+  
+}, 1000)
 /*------------- Cached Element References -----------*/
 const answerEl = document.getElementById('answer-count')
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn = document.getElementById('incorrect-answer-button')
 const resetBtn = document.getElementById('reset-button')
-
+const countdownEl = document.getElementById('countdown')
 /*----------------- Event Listeners ----------------*/
 resetBtn.addEventListener('click', init)
 correctBtn.addEventListener('click', handleClick)
@@ -35,20 +44,6 @@ function init() {
   noClickyYet = false
 }
 
-function tickTock() {
-  console.log(remainingTime)
-  if (remainingTime === 0) {
-    clearInterval(timerIntervalId)
-    showMessage(`Time is up for this kathakali...would you like to try it again?`)
-  }
-}
-function startTheTimer() {
-  if (timerIntervalId) {
-    clearInterval(timerIntervalId)
-    
-  }
-  timerIntervalId = setInterval(tickTock, 450000)
-}
 
 function showMessage(message) {
   answerEl.textContent = message
@@ -73,5 +68,7 @@ function render() {
 
 function updateMessage() {
   messageEl.textContent = `${correctAnswer} ${incorrectAnswer}`
-  
+  handleClick()
 }
+
+
