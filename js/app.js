@@ -28,14 +28,17 @@ let timer = setInterval(function() {
 const answerEl = document.getElementById('answer-count')
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
-const incorrectBtn = document.getElementById('incorrect-answer-button')
+const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
+const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
 const resetBtn = document.getElementById('reset-button')
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const questionBtn = document.querySelector('#question-button')
 /*----------------- Event Listeners ----------------*/
 resetBtn.addEventListener('click', init)
-
+correctBtn.addEventListener('click', handleClick)
+incorrectBtn1.addEventListener('click', handleClick)
+incorrectBtn2.addEventListener('click', handleClick)
 questionBtn.addEventListener('click', createQuestion)
 
 /*------------------- Functions ---------------------*/
@@ -46,8 +49,7 @@ function init() {
   render()
   correctAnswer = 0
   incorrectAnswer = 0
-  gameInPlay = false
-
+  
 }
 
 
@@ -57,15 +59,13 @@ function showMessage(message) {
 }
 
 function handleClick(evt) {
-  let correctAnswer = 0
-  let incorrectAnswer = 0
   
   if (evt.target.id === 'correct-answer-button') {
-    correctAnswerCount = correctAnswerCount + 1
+    correctAnswer = correctAnswer + 1
     messageEl.textContent = "That's the ticket~! That is correct!"
 
   } else if(evt.target.id === 'incorrect-answer-button') {
-    incorrectAnswerCount = incorrectAnswerCount + 1
+    incorrectAnswer = incorrectAnswer + 1
     messageEl.textContent = "Incorrect. Try again"
   }
   render()
@@ -84,7 +84,6 @@ function appendQuestion(question) {
   questionCard.className = `card ${question.question}`
   questionCard.innerHTML = 
   `<div>
-  <p>${question.text}</p>
   <p id = "question-container">Question For Ya:${question.question}</p>
   <footer>
     <button class = 'correct-answer-button'>${question.correctAnswer}</button>
@@ -94,6 +93,7 @@ function appendQuestion(question) {
     `
 
     questionContainer.appendChild(questionCard)
+    
 }
 
 function createQuestion() {
@@ -104,7 +104,8 @@ function createQuestion() {
 }
 
 function updateMessage() {
-  messageEl.textContent = `${correctAnswerCount} ${incorrectAnswerCount}`
+  messageEl.textContent = `${correctAnswer} ${incorrectAnswer}`
   render()
+  
 }
 
