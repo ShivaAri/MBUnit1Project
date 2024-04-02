@@ -1,7 +1,8 @@
 /*------------------ Constants --------------------*/
 
-
-
+const whoWantSomeDuckSound = new Audio('../audio/Who want some duck.mp3')
+const shockSound = new Audio('../audio/shock.mp3')
+const ohSound = new Audio('../audio/OH.mp3')
 
 const handleReset = function() {
   init()
@@ -10,13 +11,16 @@ const handleReset = function() {
 let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, noClickyYet
 let correctAnswerCount = 0
 let incorrectAnswerCount = 0
-let timeLeft = 45
+let timeLeft = 120
 
 let timer = setInterval(function() {
   countdownEl.textContent = timeLeft + ' seconds remain...'
   timeLeft -= 1
   if (timeLeft < 0) {
     countdownEl.textContent = "Time is Up! Were you entertained?"
+    clearInterval(timer)
+    shockSound.volume = .05
+    shockSound.play()
   }
   
 }, 1000)
@@ -50,13 +54,19 @@ function showMessage(message) {
 }
 
 function handleClick(evt) {
+  let message 
+  let correctAnswer = 0
+  let incorrectAnswer = 0
   
-  const correctButtonIdx = evt.target.id = 'correct-answer-button'
-  const wrongButtonIdx = evt.target.id = 'incorrect-answer-button'
   if (evt.target.id === 'correct-answer-button') {
     correctAnswer = correctAnswer + 1
+    whoWantSomeDuckSound.volume = .05
+    whoWantSomeDuckSound.play()
+
   } else if(evt.target.id === 'incorrect-answer-button') {
     incorrectAnswer = incorrectAnswer + 1
+    ohSound.volume = .05
+    ohSound.play()
   }
   render()
 }
