@@ -47,45 +47,34 @@ function init() {
   gameInPlay = false
 }
 
-function gameInPlay() {
-  init()
-}
+
 function showMessage(message) {
   answerEl.textContent = message
   render()
 }
 
 function handleClick(evt) {
-  let message 
   let correctAnswer = 0
   let incorrectAnswer = 0
   
   if (evt.target.id === 'correct-answer-button') {
-    correctAnswer = correctAnswer + 1
-    whoWantSomeDuckSound.volume = .05
-    whoWantSomeDuckSound.play()
+    correctAnswerCount = correctAnswerCount + 1
+    messageEl.textContent = "That's the ticket~! That is correct!"
 
-  } else if(evt.target.id === 'incorrect-answer-button1') {
-    incorrectAnswer = incorrectAnswer + 1
-    ohSound.volume = .05
-    ohSound.play()
-  } else if(evt.target.id === 'incorrect-answer-button2') {
-    incorrectAnswer = incorrectAnswer + 1
-    ohSound.volume = .05
-    ohSound.play()
+  } else if(evt.target.id === 'incorrect-answer-button') {
+    incorrectAnswerCount = incorrectAnswerCount + 1
+    messageEl.textContent = "Incorrect. Try again"
   }
   render()
+  updateMessage()
 }
 
 function render() {
-  updateMessage()
-
+  
 }
 
 function updateMessage() {
-  messageEl.textContent = `${correctAnswer} ${incorrectAnswer}`
-  handleClick()
+  messageEl.textContent = `${correctAnswerCount} ${incorrectAnswerCount}`
   render()
 }
-
 

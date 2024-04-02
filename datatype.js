@@ -1,6 +1,6 @@
-const correctAnswers = [1985, Sephiroth, Shiva, Street Fighter, Counter the Pokémon not the Tera Jewel, Inuyasha, Dance With The IdleDeadline, Perfect Dark, Erudite Eyes]
+// const correctAnswers = [1985, 'Sephiroth', 'Shiva, Street Fighter, Counter the Pokémon not the Tera Jewel, Inuyasha, Dance With The IdleDeadline, Perfect Dark, Erudite Eyes]
 
-const incorrectAnswers = [1998, 1987, Kazuya Mishima, Ridley, Vishnu, Brahma, Fatal Fury, Tekken, Counter the Tera Jewel, Stay Idle, Dragon Ball Z, Ghost Sweeper Mikami, VHS Glitch, GoldenEye 007, Smash Bros, Unseen Entities, Beat Eat Nest]
+// const incorrectAnswers = [1998, 1987, 'Kazuya Mishima', 'Ridley', 'Vishnu', 'Brahma', 'Fatal Fury', Tekken, Counter the Tera Jewel, Stay Idle, Dragon Ball Z, Ghost Sweeper Mikami, VHS Glitch, GoldenEye 007, Smash Bros, Unseen Entities, Beat Eat Nest]
 
 const questions = [
   {
@@ -14,21 +14,22 @@ const questions = [
     question: 'Of the Hindu Trimurti, which of the three is known as the Destroyer AND the Lord of Dance?', correctAnswer: 'Shiva', incorrectAnswers: ['Vishnu', 'Brahma']
   },
   {
-    question: 'What is the name of the game series Ryu comes from?', correctAnswer: 'Street Fighter', incorrectAnswers: ['Fatal Fury'. 'Tekken']
+    question: 'What is the name of the game series Ryu comes from?', correctAnswer: 'Street Fighter', incorrectAnswers: ['Fatal Fury', 'Tekken']
   },
   {
     question: 'When dealing with tera raids in Pokémon Scarlet and Violet, what is the best way to win them?', correctAnswer: 'Counter the Pokémon not the Tera Jewel', incorrectAnswers: ['Counter the Tera Jewel'. 'Stay Idle']
   },
   {
-    question: 'Which classic anime showcases an Inu Hanyo and his group on a mission to restore the Shikon Jewel?', correctAnswer: 'Inuyasha', incorrectAnswers: ['Dragon Ball Z'. 'Ghost Sweeper Mikami']
+    question: 'Which classic anime showcases an Inu Hanyo and his group on a mission to restore the Shikon Jewel?', correctAnswer: 'Inuyasha', incorrectAnswers: ['Dragon Ball Z', 'Ghost Sweeper Mikami']
   },
   {
-    question: 'What Electronic band is responsible for songs such as Sledge, Not Of This Earth, and That House?', correctAnswer: 'Dance With The Dead', incorrectAnswers: ['VHS Glitch'. 'Mega Drive']
+    question: 'What Electronic band is responsible for songs such as Sledge, Not Of This Earth, and That House?', correctAnswer: 'Dance With The Dead', incorrectAnswers: ['VHS Glitch', 'Mega Drive']
   },
   {
     question: 'The song A Corpse In The Trunk by Nightcrawler is a remix of an old song from what game?', correctAnswer: 'Perfect Dark', incorrectAnswers: ['GoldenEye 007', 'Smash Bros']
   },
   {
-    question: 'In various fighting games, characters have their own theme songs. What is the name of the theme song of Chaos from Under Night Inbirth?', correctAnswer: 'Erudite Eyes', incorrectAnswers: ['Unseen Entities'. 'Beat Eat Nest']
+    question: 'In various fighting games, characters have their own theme songs. What is the name of the theme song of Chaos from Under Night Inbirth?', correctAnswer: 'Erudite Eyes', incorrectAnswers: ['Unseen Entities', 'Beat Eat Nest']
   },
 ]
+
