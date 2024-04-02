@@ -54,7 +54,7 @@ function init() {
 
 
 function showMessage(message) {
-  answerEl.textContent = message
+  message.textContent = message
   render()
 }
 
@@ -64,7 +64,10 @@ function handleClick(evt) {
     correctAnswer = correctAnswer + 1
     messageEl.textContent = "That's the ticket~! That is correct!"
 
-  } else if(evt.target.id === 'incorrect-answer-button') {
+  } else if(evt.target.id === 'incorrect-answer-button1') {
+    incorrectAnswer = incorrectAnswer + 1
+    messageEl.textContent = "Incorrect. Try again"
+  } else if(evt.target.id === 'incorrect-answer-button1') {
     incorrectAnswer = incorrectAnswer + 1
     messageEl.textContent = "Incorrect. Try again"
   }
@@ -104,7 +107,6 @@ function createQuestion() {
 }
 
 function updateMessage() {
-  messageEl.textContent = `${correctAnswer} ${incorrectAnswer}`
   render()
   
 }
