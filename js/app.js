@@ -85,8 +85,7 @@ function appendQuestion(question) {
   questionCard.innerHTML = 
   `<div>
   <p>${question.text}</p>
-  <p id = 'question-container'>img src='../js/datatype.js
-  </div>
+  <p id = "question-container">Question For Ya:${question.question}</p>
   <footer>
     <button class = 'correct-answer-button'>${question.correctAnswer}</button>
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
