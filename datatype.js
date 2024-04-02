@@ -30,3 +30,10 @@ const questions = [
   },
 ]
 
+function getRandomQuestion() {
+  return questions[Math.floor(Math.random() * quotes.length)]
+}
+
+export {
+  getRandomQuestion,
+}

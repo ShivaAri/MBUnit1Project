@@ -12,13 +12,12 @@ body {
   font-size: 30px;
 }
 
-.question-container {
+#question-container {
   display: flex;
-  align-items: center;
-  margin-bottom: 19px;
-  font-size: larger;
-  padding: 10px 20px;
-  flex-direction: column;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 19px;
 }
 
 nav {
@@ -31,17 +30,7 @@ nav {
 h3 {
   color: indigo;
 }
-button {
-  border: none;
-  background-color: rgb(255, 0, 0);
-  font-size: 32px;
-  cursor: pointer;
-  margin: 9px;
-  padding: 5px 12px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 45 px;
-}
+
 
 h1 {
   background-color: darkblue;

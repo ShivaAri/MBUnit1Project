@@ -1,5 +1,5 @@
 /*------------------ Constants --------------------*/
-
+import { getRandomQuestion } from "../datatype.js"
 const whoWantSomeDuckSound = new Audio('../audio/Who want some duck.mp3')
 const shockSound = new Audio('../audio/shock.mp3')
 const ohSound = new Audio('../audio/OH.mp3')
