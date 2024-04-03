@@ -68,9 +68,10 @@ function handleClick(evt) {
     messageEl.textContent = "That's the ticket~! You are correct"
   } else {
     messageEl.textContent = "Incorrect. Try again!"
+    incorrectAnswer = incorrectAnswer + 1
   }
   render()
-  checkForWinner()
+  
 }
 
 
