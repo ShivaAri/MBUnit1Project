@@ -53,7 +53,7 @@ function init() {
   incorrectAnswer = 0
   winner = false
   render()
-  
+  checkForWinner()
 }
 
 
@@ -113,7 +113,7 @@ function createQuestion() {
   //celebratory message saying "Congratulations! You are a trivia machine!"
 
 function checkForWinner() {
-  if(correctAnswerCount = 9){
+  if(correctAnswer = 9){
     winner = true
     messageEl.textContent = "Congratulations! You are a Trivia Machine!"
   }
