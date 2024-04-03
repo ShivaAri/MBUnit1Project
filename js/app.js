@@ -108,6 +108,10 @@ function createQuestion() {
 
 function updateMessage() {
   render()
-  
+  if(correctAnswerCount > incorrectAnswerCount) {
+    messageEl.textContent = 'Congratulations!'
+  } else {
+    messageEl.textContent = 'Do not fret. You have tons of tries to win~'
+  }
 }
 
