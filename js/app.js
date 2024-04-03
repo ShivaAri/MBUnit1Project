@@ -9,7 +9,7 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, noClickyYet
+let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner
 let correctAnswerCount = 0
 let incorrectAnswerCount = 0
 let timeLeft = 120
@@ -29,6 +29,7 @@ let timer = setInterval(function() {
 const answerEl = document.getElementById('answer-count')
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
+console.log(correctBtn)
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
 // const resetBtn = document.getElementById('reset-button')
@@ -36,7 +37,6 @@ const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const questionBtn = document.querySelector('#question-button')
 /*----------------- Event Listeners ----------------*/
-// resetBtn.addEventListener('click', init)
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
@@ -51,6 +51,8 @@ function init() {
   render()
   correctAnswer = 0
   incorrectAnswer = 0
+  winner = false
+  render()
   
 }
 
@@ -62,22 +64,16 @@ function showMessage(message) {
 
 function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
+    correctAnswer = correctAnswer + 1
     messageEl.textContent = "That's the ticket~! You are correct"
   } else {
-    messageEl.textContent = "Incorrect. Try Again"
+    messageEl.textContent = "Incorrect. Try again!"
   }
   render()
+  checkForWinner()
 }
 
-//When a correct answer is pressed:
-  //check to see if the class is indeed a correct answer button
-  //the message element should read off "that's the ticket~! That is correct!"
-  //determine what it is that was clicked
 
-
-//when an incorrect answer is pressed:
-  //function should check to see if correct
-  //the message element should read "Incorrect. Try Again"
 
 function render() {
   questionContainer.innerHTML = ''
@@ -111,6 +107,17 @@ function createQuestion() {
   questions.push(newQuestion)
   render()
 }
+
+//when a certain number of correct answers equals 9:
+  //celebratory message saying "Congratulations! You are a trivia machine!"
+
+function checkForWinner() {
+  if(correctAnswerCount = 9){
+    winner = true
+    messageEl.textContent = "Congratulations! You are a Trivia Machine!"
+  }
+}
+
 
 // function updateMessage() {
 //   render()
