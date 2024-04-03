@@ -29,10 +29,9 @@ let timer = setInterval(function() {
 const answerEl = document.getElementById('answer-count')
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
-console.log(correctBtn)
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
-// const resetBtn = document.getElementById('reset-button')
+const resetBtn = document.getElementById('reset-button')
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const questionBtn = document.querySelector('#question-button')
@@ -41,7 +40,7 @@ correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
 questionBtn.addEventListener('click', createQuestion)
-
+resetBtn.addEventListener('click', init)
 
 /*------------------- Functions ---------------------*/
 init()
@@ -53,7 +52,7 @@ function init() {
   incorrectAnswer = 0
   winner = false
   render()
-  checkForWinner()
+  
 }
 
 

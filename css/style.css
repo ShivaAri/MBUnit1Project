@@ -57,4 +57,5 @@ input {
   border: none;
   border-radius: 20px;
   background-color: deeppink;
+  cursor: pointer;
 }
