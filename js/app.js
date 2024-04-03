@@ -3,6 +3,7 @@ import { getRandomQuestion } from "../data/datatype.js"
 const whoWantSomeDuckSound = new Audio('../audio/Who want some duck.mp3')
 const shockSound = new Audio('../audio/shock.mp3')
 const ohSound = new Audio('../audio/OH.mp3')
+const areYouMadSound = new Audio('../audio/Are You mad.mp3')
 
 const handleReset = function() {
   init()
@@ -19,7 +20,7 @@ let timer = setInterval(function() {
   if (timeLeft < 0) {
     countdownEl.textContent = "Time is Up! Were you entertained?"
     clearInterval(timer)
-    shockSound.volume = .05
+    shockSound.volume = 0
     shockSound.play()
   }
   
@@ -30,16 +31,17 @@ const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
-const resetBtn = document.getElementById('reset-button')
+// const resetBtn = document.getElementById('reset-button')
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const questionBtn = document.querySelector('#question-button')
 /*----------------- Event Listeners ----------------*/
-resetBtn.addEventListener('click', init)
+// resetBtn.addEventListener('click', init)
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
 questionBtn.addEventListener('click', createQuestion)
+
 
 /*------------------- Functions ---------------------*/
 init()
@@ -59,32 +61,36 @@ function showMessage(message) {
 }
 
 function handleClick(evt) {
-  
-  if (evt.target.id === 'correct-answer-button') {
-    correctAnswer = correctAnswer + 1
-    messageEl.textContent = "That's the ticket~! That is correct!"
-
-  } else if(evt.target.id === 'incorrect-answer-button1') {
-    incorrectAnswer = incorrectAnswer + 1
-    messageEl.textContent = "Incorrect. Try again"
-  } else if(evt.target.id === 'incorrect-answer-button1') {
-    incorrectAnswer = incorrectAnswer + 1
-    messageEl.textContent = "Incorrect. Try again"
+  if(evt.target.className === 'correct-answer-button') {
+    messageEl.textContent = "That's the ticket~! You are correct"
+  } else {
+    messageEl.textContent = "Incorrect. Try Again"
   }
   render()
-  updateMessage()
 }
+
+//When a correct answer is pressed:
+  //check to see if the class is indeed a correct answer button
+  //the message element should read off "that's the ticket~! That is correct!"
+  //determine what it is that was clicked
+
+
+//when an incorrect answer is pressed:
+  //function should check to see if correct
+  //the message element should read "Incorrect. Try Again"
 
 function render() {
   questionContainer.innerHTML = ''
   questions.forEach((question, idx) => {
     appendQuestion(question, idx)
   })
+
 }
 
 function appendQuestion(question) {
   let questionCard = document.createElement('div')
   questionCard.className = `card ${question.question}`
+  questionCard.addEventListener('click', handleClick)
   questionCard.innerHTML = 
   `<div>
   <p id = "question-container">Question For Ya:${question.question}</p>
@@ -106,12 +112,12 @@ function createQuestion() {
   render()
 }
 
-function updateMessage() {
-  render()
-  if(correctAnswerCount > incorrectAnswerCount) {
-    messageEl.textContent = 'Congratulations!'
-  } else {
-    messageEl.textContent = 'Do not fret. You have tons of tries to win~'
-  }
-}
+// function updateMessage() {
+//   render()
+//   if(correctAnswerCount > incorrectAnswerCount) {
+//     messageEl.textContent = 'Congratulations!'
+//   } else {
+//     messageEl.textContent = 'Do not fret. You have tons of tries to win~'
+//   }
+// }
 
