@@ -52,3 +52,9 @@ button:hover {
   background-color: aliceblue;
   color: rgb(8, 0, 255);
 }
+
+input {
+  border: none;
+  border-radius: 20px;
+  background-color: deeppink;
+}
