@@ -26,7 +26,7 @@ body {
 h4 {
   display: none;
   border-radius: 20px;
-  
+
 }
 
 nav {
@@ -39,7 +39,7 @@ nav {
 h3 {
   color: indigo;
   border: none;
-  
+  border-radius: 50px;
 }
 
 
@@ -67,4 +67,15 @@ input {
   border-radius: 20px;
   background-color: deeppink;
   cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-btn {
+  background-color: forestgreen;
+  color: whitesmoke;
+  font-size: 20px;
 }

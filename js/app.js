@@ -39,6 +39,7 @@ incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
 questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
+questionContainer.addEventListener('click', deleteQuestion)
 
 /*------------------- Functions ---------------------*/
 init()
@@ -51,6 +52,7 @@ function init() {
   winner = false
   timeLeft = 120
   questionContainer.innerHTML = ''
+  checkForWinner()
 }
 
 
@@ -86,17 +88,19 @@ function render() {
 
 }
 
-function appendQuestion(question) {
+function appendQuestion(question, idx) {
   let questionCard = document.createElement('div')
   questionCard.className = `card ${question.question}`
   questionCard.addEventListener('click', handleClick)
   questionCard.innerHTML = 
   `<div>
-  <p id = "question-container">Question For Ya:${question.question}</p>
-  <footer>
+  <p>Question For Ya:${question.question}</p>
     <button class = 'correct-answer-button'>${question.correctAnswer}</button>
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+    </div>
+    <footer>
+      <button class='delete-btn' id='delete-btn-${idx}'>X</button>
     </footer>
     `
 
@@ -104,11 +108,23 @@ function appendQuestion(question) {
     
 }
 
+
+
 function createQuestion() {
   const newQuestion = getRandomQuestion()
 
   questions.push(newQuestion)
   render()
+}
+
+function deleteQuestion(evt) {
+  if(evt.target.className === 'delete-btn') {
+    const idx = evt.target.id.replace('delete-btn-', '')
+    shockSound.volume = .05
+    shockSound.play
+    questions.splice(idx, 1)
+    render()
+  }
 }
 
 function checkForWinner() {
