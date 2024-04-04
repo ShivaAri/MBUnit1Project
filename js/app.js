@@ -10,8 +10,6 @@ const handleReset = function() {
 }
 /*--------------- Variables (state) ----------------*/
 let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner
-let correctAnswerCount = 0
-let incorrectAnswerCount = 0
 let timeLeft = 120
 const questions = []
 let timer = setInterval(function() {
@@ -80,6 +78,7 @@ function render() {
   questions.forEach((question, idx) => {
     appendQuestion(question, idx)
   })
+  updateMessage()
 
 }
 
@@ -109,22 +108,19 @@ function createQuestion() {
 }
 
 //when a certain number of correct answers equals 9:
+  //the game should end and no more questions can be spawned.
   //celebratory message saying "Congratulations! You are a trivia machine!"
 
 function checkForWinner() {
-  if(correctAnswer = 9){
+  if(correctAnswer === 9){
     winner = true
-    messageEl.textContent = "Congratulations! You are a Trivia Machine!"
   }
 }
 
 
-// function updateMessage() {
-//   render()
-//   if(correctAnswerCount > incorrectAnswerCount) {
-//     messageEl.textContent = 'Congratulations!'
-//   } else {
-//     messageEl.textContent = 'Do not fret. You have tons of tries to win~'
-//   }
-// }
+function updateMessage() {
+  if(correctAnswer === 9) {
+    messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
+  } 
+}
 
