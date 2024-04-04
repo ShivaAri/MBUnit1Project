@@ -12,23 +12,16 @@ const handleReset = function() {
 let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner, questionCard
 let timeLeft = 120
 const questions = []
-let timer = setInterval(function() {
-  countdownEl.textContent = timeLeft + ' seconds remain...'
-  timeLeft -= 1
-  if (timeLeft < 0) {
-    countdownEl.textContent = "Time is Up! Were you entertained?"
-    clearInterval(timer)
-    shockSound.volume = .05
-    shockSound.play()
-  }
-  
-}, 1000)
+let timeoutId
+let timer
+
 /*------------- Cached Element References -----------*/
 const answerEl = document.getElementById('answer-count')
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
+const resetButtonContainer = document.querySelector('.reset-button-container')
 const resetBtn = document.getElementById("reset-button")
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
@@ -41,6 +34,7 @@ questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
 
 
+
 /*------------------- Functions ---------------------*/
 init()
 
@@ -50,11 +44,25 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   winner = false
-  timer = 120
-  
+  timeLeft = 120
   questionContainer.innerHTML = ''
   checkForWinner()
+  // console.log('Working')
+  clearInterval(timer)
+  timer = setInterval(function() {
+    countdownEl.textContent = timeLeft + ' seconds remain...'
+    timeLeft -= 1
+    if (timeLeft < 0) {
+      countdownEl.textContent = "Time is Up! Were you entertained?"
+      clearInterval(timer)
+      shockSound.volume = 0
+      shockSound.play()
+    }
+    
+  }, 1000)
+  
 }
+
 
 
 function showMessage(message) {
@@ -91,6 +99,7 @@ function render() {
 //When the reset button is clicked:
   //all previous questions that are on the screen should fully disappear and not be shown when the question button is pressed again to reveal a new one.
   //Ben said this: "If you set an element's innerHTML property to an empty string, it'll clear out any HTML that's currently within it."
+  //when the game ends and the reset button is clicked, it should start the game again
 function appendQuestion(question, idx, evt) {
   let questionCard = document.createElement('div')
   
@@ -123,10 +132,12 @@ function createQuestion() {
   questions.push(newQuestion)
   render()
 }
-
+//When the 9 correct answers are attained:
+  //the timer should stop
 function checkForWinner() {
   if(correctAnswer === 9){
     winner = true
+    clearInterval(timer)
   }
 }
 
@@ -136,5 +147,6 @@ function updateMessage() {
     whoWantSomeDuckSound.volume = .05
     whoWantSomeDuckSound.play()
   } 
+  checkForWinner()
 }
 
