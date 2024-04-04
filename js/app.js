@@ -49,7 +49,6 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   winner = false
-  render()
   
 }
 
