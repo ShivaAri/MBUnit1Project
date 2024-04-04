@@ -29,7 +29,7 @@ const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
-const resetBtn = document.getElementById('reset-button')
+const resetBtn = document.getElementById("reset-button")
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const questionBtn = document.querySelector('#question-button')
@@ -62,8 +62,12 @@ function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
     correctAnswer = correctAnswer + 1
     messageEl.textContent = "That's the ticket~! You are correct"
+    ohSound.volume = .05
+    ohSound.play()
   } else {
     messageEl.textContent = "Incorrect. Try again!"
+    areYouMadSound.volume = .05
+    areYouMadSound.play()
     incorrectAnswer = incorrectAnswer + 1
   }
   render()
@@ -120,6 +124,8 @@ function checkForWinner() {
 function updateMessage() {
   if(correctAnswer === 9) {
     messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
+    whoWantSomeDuckSound.volume = .05
+    whoWantSomeDuckSound.play()
   } 
 }
 
