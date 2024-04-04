@@ -50,7 +50,7 @@ function init() {
   incorrectAnswer = 0
   winner = false
   timeLeft = 120
-  
+  questionContainer.innerHTML = ''
 }
 
 
