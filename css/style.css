@@ -18,6 +18,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 19px;
+  background-color: indigo;
+  border-radius: 40px;
 }
 
 h4 {
@@ -33,12 +35,16 @@ nav {
 }
 h3 {
   color: indigo;
+  border: none;
+  
 }
 
 
 h1 {
   background-color: darkblue;
 }
+
+
 
 button {
   border: none;
