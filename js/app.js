@@ -18,7 +18,7 @@ let timer = setInterval(function() {
   if (timeLeft < 0) {
     countdownEl.textContent = "Time is Up! Were you entertained?"
     clearInterval(timer)
-    shockSound.volume = 0
+    shockSound.volume = .05
     shockSound.play()
   }
   
@@ -49,6 +49,7 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   winner = false
+  timeLeft = 120
   
 }
 
@@ -110,16 +111,11 @@ function createQuestion() {
   render()
 }
 
-//when a certain number of correct answers equals 9:
-  //the game should end and no more questions can be spawned.
-  //celebratory message saying "Congratulations! You are a trivia machine!"
-
 function checkForWinner() {
   if(correctAnswer === 9){
     winner = true
   }
 }
-
 
 function updateMessage() {
   if(correctAnswer === 9) {
