@@ -1,7 +1,7 @@
 Screenshot:
 # Kathakali Du Toribia!
 
-![alt text](file:///Users/michaelbrown/Desktop/Screenshot%202024-04-04%20at%203.38.55%E2%80%AFPM.png)
+![alt text]()
 
 
 
