@@ -9,7 +9,7 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner
+let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner, questionCard
 let timeLeft = 120
 const questions = []
 let timer = setInterval(function() {
@@ -39,7 +39,7 @@ incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
 questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
-questionContainer.addEventListener('click', deleteQuestion)
+
 
 /*------------------- Functions ---------------------*/
 init()
@@ -50,7 +50,8 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   winner = false
-  timeLeft = 120
+  timer = 120
+  
   questionContainer.innerHTML = ''
   checkForWinner()
 }
@@ -87,23 +88,29 @@ function render() {
   updateMessage()
 
 }
-
-function appendQuestion(question, idx) {
+//When the reset button is clicked:
+  //all previous questions that are on the screen should fully disappear and not be shown when the question button is pressed again to reveal a new one.
+  //Ben said this: "If you set an element's innerHTML property to an empty string, it'll clear out any HTML that's currently within it."
+function appendQuestion(question, idx, evt) {
   let questionCard = document.createElement('div')
-  questionCard.className = `card ${question.question}`
+  
+  questionCard.className = `card ${question.text}`
+  questionContainer.innerHTML = ''
   questionCard.addEventListener('click', handleClick)
+
+  
   questionCard.innerHTML = 
   `<div>
-  <p>Question For Ya:${question.question}</p>
+    <p id='question-card'>Question For Ya: ${question.text}</p>
     <button class = 'correct-answer-button'>${question.correctAnswer}</button>
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
-    </div>
+  </div>
     <footer>
       <button class='delete-btn' id='delete-btn-${idx}'>X</button>
     </footer>
     `
-
+    
     questionContainer.appendChild(questionCard)
     
 }
@@ -115,16 +122,6 @@ function createQuestion() {
 
   questions.push(newQuestion)
   render()
-}
-
-function deleteQuestion(evt) {
-  if(evt.target.className === 'delete-btn') {
-    const idx = evt.target.id.replace('delete-btn-', '')
-    shockSound.volume = .05
-    shockSound.play
-    questions.splice(idx, 1)
-    render()
-  }
 }
 
 function checkForWinner() {
