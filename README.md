@@ -1,7 +1,9 @@
-Screenshot:
-#Kathakali Du Toribia!
+# `Kathakali Du Toribia!`
 
-![alt text](./assets/Screenshot%202024-04-04%20at%203.38.55 PM.png)
+Screenshot: ![alt text](./assets/Screenshot%202024-04-04%20at%203.38.55 PM.png)
+
+
+
 
 
 
@@ -14,7 +16,7 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 [Play Kathakali Du Toribia here~!](https://kathakalidutoribia.netlify.app/)
 
 
-##Technologies Used
+## `Technologies Used`
 
 ..Css
 ..Javascript
@@ -27,13 +29,13 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 [Credit heavily to MDN](https://developer.mozilla.org/en-US/)
 
 
-####Recent Changes
+### `Recent Changes`
 All functionality is completed
 The Styling can begin.
 
 
 
-###Ice Box
+#### `Ice Box`
 
 Add animation to the lettering
 gradient on the cards

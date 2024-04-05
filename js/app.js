@@ -128,12 +128,10 @@ function appendQuestion(question, idx, evt) {
 
 function createQuestion() {
   const newQuestion = getRandomQuestion()
-
   questions.push(newQuestion)
   render()
 }
-//When the 9 correct answers are attained:
-  //the timer should stop
+
 function checkForWinner() {
   if(correctAnswer === 9){
     winner = true
@@ -150,3 +148,5 @@ function updateMessage() {
   checkForWinner()
 }
 
+//When a category button is clicked:
+  //A question from that category should appear with the question and the answers.

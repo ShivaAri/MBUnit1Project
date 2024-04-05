@@ -55,6 +55,8 @@ button {
   border-radius: 20px;
   background-color: rgb(8, 0, 255);
   color: aliceblue;
+  font-size: 80px;
+  padding: 10px 30px;
 }
 
 button:hover {
