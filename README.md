@@ -37,4 +37,6 @@ The Styling can begin.
 
 Add animation to the lettering
 gradient on the cards
+Update the congratulatory message to showcase number of incorrect answers and correct answers
+
 
