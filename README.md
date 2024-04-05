@@ -1,6 +1,6 @@
 # `Kathakali Du Toribia!`
 
-Screenshot: ![alt text](./assets/Screenshot%202024-04-04%20at%203.38.55 PM.png)
+## `Screenshot:` ![alt text](./assets/Screenshot%202024-04-04%20at%203.38.55 PM.png)
 
 
 
@@ -13,7 +13,7 @@ When an answer is clicked, a sound effect plays, indicating that it is the corre
 You will have unlimited tries for each question, but there is a time limit. 120 seconds is all you have to completely attain the 9 correct answers you need for victory.
 
 
-[Play Kathakali Du Toribia here~!](https://kathakalidutoribia.netlify.app/)
+## [Play Kathakali Du Toribia here~!](https://kathakalidutoribia.netlify.app/)
 
 
 ## `Technologies Used`
@@ -24,21 +24,26 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 ..Git
 
 
-###Credits
+### `Credits`
 
 [Credit heavily to MDN](https://developer.mozilla.org/en-US/)
 
 
 ### `Recent Changes`
-All functionality is completed
+All functionality is completed.
+
+
 The Styling can begin.
 
 
 
 #### `Ice Box`
 
-Add animation to the lettering
-gradient on the cards
-Update the congratulatory message to showcase number of incorrect answers and correct answers
+Add animation to the lettering.
+
+Add some gradient on the cards.
+
+
+Update the congratulatory message to showcase number of incorrect answers and correct answers.
 
 

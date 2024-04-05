@@ -31,14 +31,23 @@ const questions = [
 ]
 
 function getRandomQuestion() {
-  return questions[Math.floor(Math.random() * questions.length)]
-}
-function filterQuestionCategory() {
-  for(let category in question) {
-    
+  if(questions.category === 'Misc') {
+    return questions.category[Math.floor(Math.random() * questions.category.length)]
+  } else if(questions.category === 'Music') {
+    return questions.category[Math.floor(Math.random() * questions.category.length)]
+  } else if (questions.category === 'Video Games') {
+    return questions.category[Math.floor(Math.random() * questions.category.length)]
   }
-  
 }
+// function filterQuestionCategory() {
+//   for(let category in question) {
+//     const catg = questions[category]
+//   }
+// }
+
+questions.forEach(function(category) {
+
+})
 export {
   getRandomQuestion,
 }
