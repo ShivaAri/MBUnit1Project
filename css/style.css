@@ -1,15 +1,15 @@
 body {
   height: 120vh;
-  background-image: url("https://img.freepik.com/free-vector/background-template-with-mandala-designs_1308-69608.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1711670400&semt=ais");
+  background-image: url("https://www.premiumbeat.com/blog/wp-content/uploads/2020/12/shutterstock_image-6.jpg");
   background-position: center;
   background-size: cover;
   margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgb(34, 255, 0);
+  color: rgb(255, 0, 0);
   
-  font-size: 30px;
+  font-size: 15px;
 }
 
 #question-container {
@@ -26,7 +26,6 @@ body {
 h4 {
   display: none;
   border-radius: 20px;
-
 }
 
 nav {
@@ -37,25 +36,37 @@ nav {
   margin-bottom: 54px;
 }
 h3 {
-  color: indigo;
+  color: rgb(255, 255, 255);
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
+  background-color: darkblue;
+  justify-content: center;
 }
 
 
 h1 {
   background-color: darkblue;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 30px;
+  
+}
 
 button {
   border: none;
   margin-top: 40px;
+  margin: 10px;
   border-radius: 20px;
   background-color: rgb(8, 0, 255);
   color: aliceblue;
-  font-size: 80px;
+  font-size: 40px;
   padding: 10px 30px;
 }
 
@@ -80,4 +91,8 @@ footer {
   background-color: forestgreen;
   color: whitesmoke;
   font-size: 20px;
+}
+
+h2 {
+  justify-content: center;
 }

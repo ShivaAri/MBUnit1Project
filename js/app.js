@@ -11,7 +11,7 @@ const handleReset = function() {
 /*--------------- Variables (state) ----------------*/
 let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner, questionCard
 let timeLeft = 120
-const questions = []
+const questionsArray = []
 let timeoutId
 let timer
 
@@ -25,13 +25,19 @@ const resetButtonContainer = document.querySelector('.reset-button-container')
 const resetBtn = document.getElementById("reset-button")
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
-const questionBtn = document.querySelector('#question-button')
+const miscQuestionBtn = document.querySelector('#misc-question-button')
+const videoGameQuestionBtn = document.querySelector('#videogame-question-button')
+const musicQuestionBtn = document.querySelector('#music-question-button')
 /*----------------- Event Listeners ----------------*/
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
-questionBtn.addEventListener('click', createQuestion)
+// questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
+miscQuestionBtn.addEventListener('click', createQuestion)
+videoGameQuestionBtn.addEventListener('click', createQuestion)
+musicQuestionBtn.addEventListener('click', createQuestion)
+
 
 
 
@@ -73,7 +79,7 @@ function showMessage(message) {
 function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
     correctAnswer = correctAnswer + 1
-    messageEl.textContent = "That's the ticket~! You are correct"
+    messageEl.textContent = `That's the ticket~! You are correct! ${correctAnswer} out of 6`
     ohSound.volume = .05
     ohSound.play()
   } else {
@@ -88,19 +94,12 @@ function handleClick(evt) {
 
 
 
-function render() {
-  questionContainer.innerHTML = ''
-  questions.forEach((question, idx) => {
-    appendQuestion(question, idx)
-  })
-  updateMessage()
 
-}
-//When the reset button is clicked:
-  //all previous questions that are on the screen should fully disappear and not be shown when the question button is pressed again to reveal a new one.
-  //Ben said this: "If you set an element's innerHTML property to an empty string, it'll clear out any HTML that's currently within it."
-  //when the game ends and the reset button is clicked, it should start the game again
-function appendQuestion(question, idx, evt) {
+
+//when a certain category button is pressed:
+  //questions of that category only should appear
+
+function appendQuestion(question, evt) {
   let questionCard = document.createElement('div')
   
   questionCard.className = `card ${question.text}`
@@ -112,28 +111,39 @@ function appendQuestion(question, idx, evt) {
   `<div>
     <p id='question-card'>Question For Ya: ${question.text}</p>
     <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+
     <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
   </div>
-    <footer>
-      <button class='delete-btn' id='delete-btn-${idx}'>X</button>
-    </footer>
-    `
+  `
     
     questionContainer.appendChild(questionCard)
     
 }
+function render() {
+  questionContainer.innerHTML = ''
+  questionsArray.forEach((questions) => {
+    questions.forEach((question) => {
+      appendQuestion(question)
+    }) 
+    
+  })
+  updateMessage()
+
+}
 
 
-
-function createQuestion() {
-  const newQuestion = getRandomQuestion()
-  questions.push(newQuestion)
+function createQuestion(evt) {
+  let categoryName = evt.target.id
+  const newQuestions = getRandomQuestion(categoryName)
+  questionsArray.push(newQuestions)
   render()
+  
 }
 
 function checkForWinner() {
-  if(correctAnswer === 9){
+  if(correctAnswer === 6){
     winner = true
     clearInterval(timer)
   }
