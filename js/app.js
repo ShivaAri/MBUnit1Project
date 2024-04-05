@@ -149,4 +149,5 @@ function updateMessage() {
 }
 
 //When a category button is clicked:
-  //A question from that category should appear with the question and the answers.
+  //A question from that category should appear with the question 
+  //

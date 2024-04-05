@@ -31,13 +31,7 @@ const questions = [
 ]
 
 function getRandomQuestion() {
-  if(questions.category === 'Misc') {
-    return questions.category[Math.floor(Math.random() * questions.category.length)]
-  } else if(questions.category === 'Music') {
-    return questions.category[Math.floor(Math.random() * questions.category.length)]
-  } else if (questions.category === 'Video Games') {
-    return questions.category[Math.floor(Math.random() * questions.category.length)]
-  }
+  return questions[Math.floor(Math.random() * questions.length)]
 }
 // function filterQuestionCategory() {
 //   for(let category in question) {
