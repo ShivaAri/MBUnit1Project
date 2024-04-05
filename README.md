@@ -24,10 +24,12 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 
 ###Credits
 
+[Credit heavily to MDN](https://developer.mozilla.org/en-US/)
 
 
 ####Recent Changes
-Added the reset button functionality accurately as well as begun styling
+All functionality is completed
+The Styling can begin.
 
 
 
@@ -35,3 +37,4 @@ Added the reset button functionality accurately as well as begun styling
 
 Add animation to the lettering
 gradient on the cards
+
