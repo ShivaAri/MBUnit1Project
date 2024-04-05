@@ -30,7 +30,7 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 
 
 ### `Recent Changes`
-All functionality is completed.
+All functionality is completed. The categories will be added.
 
 
 The Styling can begin.
