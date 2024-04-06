@@ -170,12 +170,17 @@ function render() {
     questions.forEach((question) => {
       appendQuestion(question)
     }) 
+    videoGameQuestionContainer.innerHTML = ''
     videoGameQuestionsArray.forEach((videoGameQuestion) => {
       appendVideoGameQuestion(videoGameQuestion)
     })
-    
+    musicGameQuestionContainer
     musicQuestionsArray.forEach((musicQuestion) => {
       appendMusicQuestion(musicQuestion)
+    })
+    miscQuestionContainer.innerHTML = ''
+    miscQuestionsArray.forEach((miscQuestion) => {
+      appendMiscQuestion(miscQuestion)
     })
   })
   updateMessage()
