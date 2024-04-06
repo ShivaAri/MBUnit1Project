@@ -60,7 +60,7 @@ init()
   //a question from the videoGameQuestions array should be appended to the screen.
 
 //when the Music question button is pressed:
-  //a question from the musicQuestions array to be appended to the screen.
+  //a question from the
 
 function init() {
   render()
@@ -137,6 +137,7 @@ function appendQuestion(question, evt) {
     questionContainer.appendChild(questionCard)
     
 }
+
 function appendVideoGameQuestion(question, evt) {
   let questionCard = document.createElement('div')
   
@@ -191,12 +192,10 @@ function render() {
       appendVideoGameQuestion(videoGameQuestion)
     })
     
+    musicQuestionsArray.forEach((musicQuestion) => {
+      appendMusicQuestion(musicQuestion)
+    })
   })
-
-  musicQuestionsArray.forEach((musicQuestion) => {
-    appendMusicQuestion(musicQuestion)
-  })
-  
   updateMessage()
 
 }

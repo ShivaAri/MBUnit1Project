@@ -89,9 +89,7 @@ function getRandomMusicQuestion(categoryName) {
 
 //As a user, I should be able to click on the Video Game Question button and/or Music Question button and/or Misc question button so that I may test my knowledge on these three categories.
 
-questions.forEach(function(category) {
 
-})
 export {
   getRandomQuestion, miscQuestions, videoGameQuestions, musicQuestions, getRandomMusicQuestion, getRandomVideoGameQuestion
 }
