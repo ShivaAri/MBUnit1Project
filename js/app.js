@@ -19,7 +19,8 @@ const videoGameQuestionsArray = []
 const musicQuestionsArray = []
 let timeoutId
 let timer
-let currentCateogry
+let currentCategory
+let categoryName
 
 
 /*------------- Cached Element References -----------*/
@@ -42,11 +43,9 @@ incorrectBtn2.addEventListener('click', handleClick)
 // questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
 miscQuestionBtn.addEventListener('click', createQuestion)
-console.log(miscQuestionBtn)
-videoGameQuestionBtn.addEventListener('click', createQuestion)
-console.log(videoGameQuestionBtn)
-musicQuestionBtn.addEventListener('click', createQuestion)
-console.log(musicQuestionBtn)
+videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
+musicQuestionBtn.addEventListener('click', createMusicGameQuestion)
+
 
 
 
@@ -54,6 +53,14 @@ console.log(musicQuestionBtn)
 /*------------------- Functions ---------------------*/
 init()
 
+//when the Misc Button is pressed:
+  //a question from the miscQuestions array to be appended to the screen
+
+//when the Video Game Question button is pressed:
+  //a question from the videoGameQuestions array should be appended to the screen.
+
+//when the Music question button is pressed:
+  //a question from the musicQuestions array to be appended to the screen.
 
 function init() {
   render()
@@ -61,7 +68,7 @@ function init() {
   incorrectAnswer = 0
   winner = false
   timeLeft = 120
-  currentCateogry = 'Music'
+  currentCategory = 'Music'
   questionContainer.innerHTML = ''
   checkForWinner()
   // console.log('Working')
@@ -106,6 +113,7 @@ function handleClick(evt) {
 
 //when a certain category button is pressed:
   //questions of that category only should appear
+  //
 
 function appendQuestion(question, evt) {
   let questionCard = document.createElement('div')
@@ -154,6 +162,7 @@ function createVideoGameQuestion(evt) {
   let videoGameCategoryName = evt.target.id
   const newVideoGameQuestions = getRandomVideoGameQuestion(categoryName)
   videoGameQuestionsArray.push(newVideoGameQuestions)
+  console.log(newVideoGameQuestions)
   
   render()
 } 

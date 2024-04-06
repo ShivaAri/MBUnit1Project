@@ -73,18 +73,21 @@ function getRandomQuestion(categoryName) {
 }
 
 function getRandomVideoGameQuestion(categoryName) {
-  let videoGameCategory = videoGameQuestions.map((categoryName) => {
-    return videoGameQuestions.category = videoGameCategory
+  
+  let videoGameQuestion = videoGameQuestions.map((videoGameQuestion) => {
+    return videoGameQuestion.category = categoryName
   })
-  return videoGameCategory
+  return videoGameQuestion
 }
 
 function getRandomMusicQuestion(categoryName) {
-  let musicGameCategory = musicQuestions.map((musicQuestion) => {
-    return musicQuestions.category = musicGameCategory
+  let musicGameQuestion = musicQuestions.map((musicQuestion) => {
+    return musicQuestion.category = categoryName
   })
-  return musicGameCategory
+  return musicGameQuestion
 }
+
+//As a user, I should be able to click on the Video Game Question button and/or Music Question button and/or Misc question button so that I may test my knowledge on these three categories.
 
 questions.forEach(function(category) {
 
