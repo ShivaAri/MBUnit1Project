@@ -150,18 +150,58 @@ function appendMiscQuestion(question, ext) {
   miscQuestionCard.addEventListener('click', handleClick)
 
   miscQuestionCard.innerHTML = `<div>
-  <p id='question-card'>Question For Ya: ${question.text}</p>
-  <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+    <p id='question-card'>Question For Ya: ${question.text}</p>
+    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
 
-  <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
 
-  <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
-</div>
-`
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+  </div>
+  `
 
-miscQuestionContainer.appendChild(miscQuestionCard)
+
+  miscQuestionContainer.appendChild(miscQuestionCard)
 }
 
+function appendVideoGameQuestion(question, evt) {
+  let videoGameQuestionCard = document.createElement('div')
+  videoGameQuestionCard.className = `card ${question.text}`
+  videoGameQuestionContainer.innerHTML = ''
+  videoGameQuestionCard.addEventListener('click', handleClick)
+
+  videoGameQuestionCard.innerHTML = `
+  <div>
+    <p id='question-card'>Question For Ya: ${question.text}</p>
+    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+  </div>
+  `
+
+  videoGameQuestionContainer.appendChild(videoGameQuestionCard)
+}
+
+function appendMusicQuestion(question, evt) {
+  let musicQuestionCard = document.createElement('div')
+  musicQuestionCard.className = `card ${question.text}`
+  musicGameQuestionContainer.innerHTML = ''
+  musicQuestionCard.addEventListener('click', handleClick)
+
+  musicQuestionCard.innerHTML = `
+  <div>
+    <p id='question-card'>Question For Ya: ${question.text}</p>
+    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+  </div>
+  `
+
+  musicGameQuestionContainer.appendChild(musicQuestionCard)
+}
 
 
 function render() {
@@ -170,15 +210,15 @@ function render() {
     questions.forEach((question) => {
       appendQuestion(question)
     }) 
-    videoGameQuestionContainer.innerHTML = ''
+    
     videoGameQuestionsArray.forEach((videoGameQuestion) => {
       appendVideoGameQuestion(videoGameQuestion)
     })
-    musicGameQuestionContainer
+    
     musicQuestionsArray.forEach((musicQuestion) => {
       appendMusicQuestion(musicQuestion)
     })
-    miscQuestionContainer.innerHTML = ''
+    
     miscQuestionsArray.forEach((miscQuestion) => {
       appendMiscQuestion(miscQuestion)
     })
