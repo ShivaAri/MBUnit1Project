@@ -1,5 +1,5 @@
 /*------------------ Constants --------------------*/
-import { getRandomMusicQuestion, getRandomQuestion, getRandomVideoGameQuestion } from "../data/datatype.js"
+import { getRandomMiscQuestion, getRandomMusicQuestion, getRandomQuestion, getRandomVideoGameQuestion } from "../data/datatype.js"
 import { miscQuestions } from "../data/datatype.js" 
 import { musicQuestions } from "../data/datatype.js"
 import { videoGameQuestions } from "../data/datatype.js"
@@ -17,6 +17,7 @@ let timeLeft = 120
 const questionsArray = []
 const videoGameQuestionsArray = []
 const musicQuestionsArray = []
+const miscQuestionsArray = []
 let timeoutId
 let timer
 let currentCategory
@@ -33,6 +34,9 @@ const resetButtonContainer = document.querySelector('.reset-button-container')
 const resetBtn = document.getElementById("reset-button")
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
+const miscQuestionContainer = document.querySelector('#misc-question-category-container')
+const videoGameQuestionContainer = document.querySelector('#videogame-question-category-container')
+const musicGameQuestionContainer = document.querySelector('#music-question-category-container')
 const miscQuestionBtn = document.querySelector('#misc-question-button')
 const videoGameQuestionBtn = document.querySelector('#videogame-question-button')
 const musicQuestionBtn = document.querySelector('#music-question-button')
@@ -42,7 +46,7 @@ incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
 // questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
-miscQuestionBtn.addEventListener('click', createQuestion)
+miscQuestionBtn.addEventListener('click', createMiscQuestion)
 videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
 musicQuestionBtn.addEventListener('click', createMusicGameQuestion)
 
@@ -138,49 +142,27 @@ function appendQuestion(question, evt) {
     
 }
 
-function appendVideoGameQuestion(question, evt) {
-  let questionCard = document.createElement('div')
-  
-  questionCard.className = `card ${question.text}`
-  questionContainer.innerHTML = ''
-  questionCard.addEventListener('click', handleClick)
+function appendMiscQuestion(question, ext) {
+  let miscQuestionCard = document.createElement('div')
 
-  
-  questionCard.innerHTML = 
-  `<div>
-    <p id='question-card'>Question For Ya: ${question.text}</p>
-    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+  miscQuestionCard.className = `card ${question.text}`
+  miscQuestionContainer.innerHTML = ''
+  miscQuestionCard.addEventListener('click', handleClick)
 
-    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+  miscQuestionCard.innerHTML = `<div>
+  <p id='question-card'>Question For Ya: ${question.text}</p>
+  <button class = 'correct-answer-button'>${question.correctAnswer}</button>
 
-    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
-  </div>
-  `
-    
-    questionContainer.appendChild(questionCard)
+  <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+
+  <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+</div>
+`
+
+miscQuestionContainer.appendChild(miscQuestionCard)
 }
 
-function appendMusicQuestion(question, evt) {
-  let questionCard = document.createElement('div')
-  
-  questionCard.className = `card ${question.text}`
-  questionContainer.innerHTML = ''
-  questionCard.addEventListener('click', handleClick)
 
-  
-  questionCard.innerHTML = 
-  `<div>
-    <p id='question-card'>Question For Ya: ${question.text}</p>
-    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
-
-    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
-
-    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
-  </div>
-  `
-    
-    questionContainer.appendChild(questionCard)
-}
 
 function render() {
   questionContainer.innerHTML = ''
@@ -209,6 +191,14 @@ function createQuestion(evt) {
   render()
   
 }
+
+function createMiscQuestion(evt) {
+  let categoryName = evt.target.id
+  const newMiscQuestions = getRandomMiscQuestion(categoryName)
+  miscQuestionsArray.push(newMiscQuestions)
+  console.log(newMiscQuestions)
+}
+
 function createVideoGameQuestion(evt) {
   let categoryName = evt.target.id
   const newVideoGameQuestions = getRandomVideoGameQuestion(categoryName)

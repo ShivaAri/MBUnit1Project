@@ -71,7 +71,14 @@ function getRandomQuestion(categoryName) {
   return categoryQuestion
   
 }
+function getRandomMiscQuestion(categoryName) {
+  let miscQuestion = miscQuestions.map((question) => {
+    return question.category = categoryName
 
+  })
+
+  return miscQuestion
+}
 function getRandomVideoGameQuestion(categoryName) {
   
   let videoGameQuestion = videoGameQuestions.map((videoGameQuestion) => {
@@ -90,5 +97,5 @@ function getRandomMusicQuestion(categoryName) {
 
 
 export {
-  getRandomQuestion, miscQuestions, videoGameQuestions, musicQuestions, getRandomMusicQuestion, getRandomVideoGameQuestion
+  getRandomQuestion, miscQuestions, videoGameQuestions, musicQuestions, getRandomMusicQuestion, getRandomVideoGameQuestion, getRandomMiscQuestion
 }

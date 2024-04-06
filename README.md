@@ -8,7 +8,7 @@
 
 
 Kathakali Du Toribia is a delightful little trivia game that is based off of various types of media: including games and anime. 
-The goal of this game is to acquire 9 correct answers before the timer runs completely out~!
+The goal of this game is to acquire 6 correct answers before the timer runs completely out~!
 When an answer is clicked, a sound effect plays, indicating that it is the correct or incorrect answer.
 You will have unlimited tries for each question, but there is a time limit. 120 seconds is all you have to completely attain the 9 correct answers you need for victory.
 
