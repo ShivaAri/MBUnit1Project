@@ -72,9 +72,23 @@ function getRandomQuestion(categoryName) {
   
 }
 
+function getRandomVideoGameQuestion(categoryName) {
+  let videoGameCategory = videoGameQuestions.map((categoryName) => {
+    return videoGameQuestions.category = videoGameCategory
+  })
+  return videoGameCategory
+}
+
+function getRandomMusicQuestion(categoryName) {
+  let musicGameCategory = musicQuestions.map((musicQuestion) => {
+    return musicQuestions.category = musicGameCategory
+  })
+  return musicGameCategory
+}
+
 questions.forEach(function(category) {
 
 })
 export {
-  getRandomQuestion, miscQuestions, videoGameQuestions, musicQuestions
+  getRandomQuestion, miscQuestions, videoGameQuestions, musicQuestions, getRandomMusicQuestion, getRandomVideoGameQuestion
 }

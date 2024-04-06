@@ -1,5 +1,5 @@
 /*------------------ Constants --------------------*/
-import { getRandomQuestion } from "../data/datatype.js"
+import { getRandomMusicQuestion, getRandomQuestion, getRandomVideoGameQuestion } from "../data/datatype.js"
 import { miscQuestions } from "../data/datatype.js" 
 import { musicQuestions } from "../data/datatype.js"
 import { videoGameQuestions } from "../data/datatype.js"
@@ -15,6 +15,8 @@ const handleReset = function() {
 let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner, questionCard, button
 let timeLeft = 120
 const questionsArray = []
+const videoGameQuestionsArray = []
+const musicQuestionsArray = []
 let timeoutId
 let timer
 let currentCateogry
@@ -40,8 +42,11 @@ incorrectBtn2.addEventListener('click', handleClick)
 // questionBtn.addEventListener('click', createQuestion)
 resetBtn.addEventListener('click', init)
 miscQuestionBtn.addEventListener('click', createQuestion)
+console.log(miscQuestionBtn)
 videoGameQuestionBtn.addEventListener('click', createQuestion)
+console.log(videoGameQuestionBtn)
 musicQuestionBtn.addEventListener('click', createQuestion)
+console.log(musicQuestionBtn)
 
 
 
@@ -141,8 +146,24 @@ function createQuestion(evt) {
   let categoryName = evt.target.id
   const newQuestions = getRandomQuestion(categoryName)
   questionsArray.push(newQuestions)
+  
   render()
   
+}
+function createVideoGameQuestion(evt) {
+  let videoGameCategoryName = evt.target.id
+  const newVideoGameQuestions = getRandomVideoGameQuestion(categoryName)
+  videoGameQuestionsArray.push(newVideoGameQuestions)
+  
+  render()
+} 
+
+function createMusicGameQuestion(evt) {
+  let musicGameCategoryName = evt.target.id
+  const newMusicQuestions = getRandomMusicQuestion(categoryName)
+  musicQuestionsArray.push(newMusicQuestions)
+
+  render()
 }
 
 function checkForWinner() {
