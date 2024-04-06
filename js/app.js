@@ -137,14 +137,66 @@ function appendQuestion(question, evt) {
     questionContainer.appendChild(questionCard)
     
 }
+function appendVideoGameQuestion(question, evt) {
+  let questionCard = document.createElement('div')
+  
+  questionCard.className = `card ${question.text}`
+  questionContainer.innerHTML = ''
+  questionCard.addEventListener('click', handleClick)
+
+  
+  questionCard.innerHTML = 
+  `<div>
+    <p id='question-card'>Question For Ya: ${question.text}</p>
+    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+  </div>
+  `
+    
+    questionContainer.appendChild(questionCard)
+}
+
+function appendMusicQuestion(question, evt) {
+  let questionCard = document.createElement('div')
+  
+  questionCard.className = `card ${question.text}`
+  questionContainer.innerHTML = ''
+  questionCard.addEventListener('click', handleClick)
+
+  
+  questionCard.innerHTML = 
+  `<div>
+    <p id='question-card'>Question For Ya: ${question.text}</p>
+    <button class = 'correct-answer-button'>${question.correctAnswer}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer1}</button>
+
+    <button class = 'incorrect-answer-button'>${question.incorrectAnswer2}</button>
+  </div>
+  `
+    
+    questionContainer.appendChild(questionCard)
+}
+
 function render() {
   questionContainer.innerHTML = ''
   questionsArray.forEach((questions) => {
     questions.forEach((question) => {
       appendQuestion(question)
     }) 
+    videoGameQuestionsArray.forEach((videoGameQuestion) => {
+      appendVideoGameQuestion(videoGameQuestion)
+    })
     
   })
+
+  musicQuestionsArray.forEach((musicQuestion) => {
+    appendMusicQuestion(musicQuestion)
+  })
+  
   updateMessage()
 
 }
@@ -171,6 +223,7 @@ function createMusicGameQuestion(evt) {
   let musicGameCategoryName = evt.target.id
   const newMusicQuestions = getRandomMusicQuestion(categoryName)
   musicQuestionsArray.push(newMusicQuestions)
+  console.log(newMusicQuestions)
 
   render()
 }
