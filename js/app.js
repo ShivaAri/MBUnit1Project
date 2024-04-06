@@ -210,7 +210,7 @@ function createQuestion(evt) {
   
 }
 function createVideoGameQuestion(evt) {
-  let videoGameCategoryName = evt.target.id
+  let categoryName = evt.target.id
   const newVideoGameQuestions = getRandomVideoGameQuestion(categoryName)
   videoGameQuestionsArray.push(newVideoGameQuestions)
   console.log(newVideoGameQuestions)
@@ -219,7 +219,7 @@ function createVideoGameQuestion(evt) {
 } 
 
 function createMusicGameQuestion(evt) {
-  let musicGameCategoryName = evt.target.id
+  let categoryName = evt.target.id
   const newMusicQuestions = getRandomMusicQuestion(categoryName)
   musicQuestionsArray.push(newMusicQuestions)
   console.log(newMusicQuestions)
