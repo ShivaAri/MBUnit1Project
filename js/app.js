@@ -119,7 +119,7 @@ function handleClick(evt) {
   //questions of that category only should appear
   //
 
-function appendQuestion(question, evt) {
+function appendQuestion(question) {
   let questionCard = document.createElement('div')
   
   questionCard.className = `card ${question.text}`
@@ -142,7 +142,7 @@ function appendQuestion(question, evt) {
     
 }
 
-function appendMiscQuestion(question, ext) {
+function appendMiscQuestion(question) {
   let miscQuestionCard = document.createElement('div')
 
   miscQuestionCard.className = `card ${question.text}`
@@ -163,7 +163,7 @@ function appendMiscQuestion(question, ext) {
   miscQuestionContainer.appendChild(miscQuestionCard)
 }
 
-function appendVideoGameQuestion(question, evt) {
+function appendVideoGameQuestion(question) {
   let videoGameQuestionCard = document.createElement('div')
   videoGameQuestionCard.className = `card ${question.text}`
   videoGameQuestionContainer.innerHTML = ''
@@ -183,7 +183,7 @@ function appendVideoGameQuestion(question, evt) {
   videoGameQuestionContainer.appendChild(videoGameQuestionCard)
 }
 
-function appendMusicQuestion(question, evt) {
+function appendMusicQuestion(question) {
   let musicQuestionCard = document.createElement('div')
   musicQuestionCard.className = `card ${question.text}`
   musicGameQuestionContainer.innerHTML = ''
@@ -206,21 +206,21 @@ function appendMusicQuestion(question, evt) {
 
 function render() {
   questionContainer.innerHTML = ''
-  questionsArray.forEach((questions) => {
-    questions.forEach((question) => {
-      appendQuestion(question)
+  questionsArray.forEach((questions, idx) => {
+    questions.forEach((question, idx) => {
+      appendQuestion(question, idx)
     }) 
     
-    videoGameQuestionsArray.forEach((videoGameQuestion) => {
-      appendVideoGameQuestion(videoGameQuestion)
+    videoGameQuestionsArray.forEach((videoGameQuestion, idx) => {
+      appendVideoGameQuestion(videoGameQuestion, idx)
     })
     
-    musicQuestionsArray.forEach((musicQuestion) => {
-      appendMusicQuestion(musicQuestion)
+    musicQuestionsArray.forEach((musicQuestion, idx) => {
+      appendMusicQuestion(musicQuestion, idx)
     })
     
-    miscQuestionsArray.forEach((miscQuestion) => {
-      appendMiscQuestion(miscQuestion)
+    miscQuestionsArray.forEach((miscQuestion, idx) => {
+      appendMiscQuestion(miscQuestion, idx)
     })
   })
   updateMessage()
