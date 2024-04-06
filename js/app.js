@@ -1,5 +1,8 @@
 /*------------------ Constants --------------------*/
 import { getRandomQuestion } from "../data/datatype.js"
+import { miscQuestions } from "../data/datatype.js" 
+import { musicQuestions } from "../data/datatype.js"
+import { videoGameQuestions } from "../data/datatype.js"
 const whoWantSomeDuckSound = new Audio('../audio/Who want some duck.mp3')
 const shockSound = new Audio('../audio/shock.mp3')
 const ohSound = new Audio('../audio/OH.mp3')
@@ -9,11 +12,13 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner, questionCard
+let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, winner, questionCard, button
 let timeLeft = 120
 const questionsArray = []
 let timeoutId
 let timer
+let currentCateogry
+
 
 /*------------- Cached Element References -----------*/
 const answerEl = document.getElementById('answer-count')
@@ -51,6 +56,7 @@ function init() {
   incorrectAnswer = 0
   winner = false
   timeLeft = 120
+  currentCateogry = 'Music'
   questionContainer.innerHTML = ''
   checkForWinner()
   // console.log('Working')
@@ -91,9 +97,6 @@ function handleClick(evt) {
   render()
   
 }
-
-
-
 
 
 //when a certain category button is pressed:
@@ -150,7 +153,7 @@ function checkForWinner() {
 }
 
 function updateMessage() {
-  if(correctAnswer === 9) {
+  if(correctAnswer === 6) {
     messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
     whoWantSomeDuckSound.volume = .05
     whoWantSomeDuckSound.play()
@@ -159,5 +162,5 @@ function updateMessage() {
 }
 
 //When a category button is clicked:
-  //A question from that category should appear with the question 
-  //
+  //A question from that category alone should appear with the question 
+  //when a different one is clicked, questions from that array should be shown only
