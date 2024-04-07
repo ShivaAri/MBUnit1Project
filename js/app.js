@@ -93,6 +93,8 @@ function render() {
   videoGameQuestions.forEach(videoGameQuestion => {
     appendVideoGameQuestion(videoGameQuestion)
   })
+
+  updateMessage()
 }
 
 function createMusicGameQuestion() {
@@ -120,6 +122,7 @@ function appendMiscQuestion(miscQuestion) {
   let miscQuestionCard = document.createElement('div')
   miscQuestionCard.className = `card`
   miscQuestionCard.addEventListener('click', handleClick)
+  miscQuestionCard.innerHTML = ''
   miscQuestionCard.innerHTML = 
   `<div>
     <p>${miscQuestion.text}</p>
@@ -134,6 +137,7 @@ function appendMusicQuestion(musicQuestion) {
   let musicQuestionCard = document.createElement('div')
   musicQuestionCard.className = `card`
   musicQuestionCard.addEventListener('click', handleClick)
+  musicQuestionCard.innerHTML = ''
   musicQuestionCard.innerHTML = 
   `<div>
     <p>${musicQuestion.text}</p>
@@ -148,6 +152,7 @@ function appendVideoGameQuestion(videoGameQuestion) {
   let videoGameQuestionCard = document.createElement('div')
   videoGameQuestionCard.className = `card`
   videoGameQuestionCard.addEventListener('click', handleClick)
+  videoGameQuestionCard.innerHTML = ''
   videoGameQuestionCard.innerHTML =
   `<div>
     <p>${videoGameQuestion.text}</p>
@@ -186,7 +191,7 @@ function checkForWinner() {
 function updateMessage() {
   if(correctAnswer === 8) {
     messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
-    whoWantSomeDuckSound.volume = .05
+    whoWantSomeDuckSound.volume = .08
     whoWantSomeDuckSound.play()
   } 
   checkForWinner()
