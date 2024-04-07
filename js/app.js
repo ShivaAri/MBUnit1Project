@@ -119,7 +119,7 @@ function showMessage(message) {
 function appendMiscQuestion(miscQuestion) {
   let miscQuestionCard = document.createElement('div')
   miscQuestionCard.className = `card`
-  miscQuestion.addEventListener('click', handleClick)
+  miscQuestionCard.addEventListener('click', handleClick)
   miscQuestionCard.innerHTML = 
   `<div>
     <p>${miscQuestion.text}</p>
