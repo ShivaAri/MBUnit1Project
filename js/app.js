@@ -57,14 +57,7 @@ musicQuestionBtn.addEventListener('click', createMusicGameQuestion)
 /*------------------- Functions ---------------------*/
 init()
 
-//when the Misc Button is pressed:
-  //a question from the miscQuestions array to be appended to the screen
 
-//when the Video Game Question button is pressed:
-  //a question from the videoGameQuestions array should be appended to the screen.
-
-//when the Music question button is pressed:
-  //a question from the
 
 function init() {
   render()
@@ -228,20 +221,13 @@ function render() {
 }
 
 
-function createQuestion(evt) {
-  let categoryName = evt.target.id
-  const newQuestions = getRandomQuestion(categoryName)
-  questionsArray.push(newQuestions)
-  
-  render()
-  
-}
-
 function createMiscQuestion(evt) {
   let categoryName = evt.target.id
   const newMiscQuestions = getRandomMiscQuestion(categoryName)
   miscQuestionsArray.push(newMiscQuestions)
   console.log(newMiscQuestions)
+
+  render()
 }
 
 function createVideoGameQuestion(evt) {
@@ -278,6 +264,3 @@ function updateMessage() {
   checkForWinner()
 }
 
-//When a category button is clicked:
-  //A question from that category alone should appear with the question 
-  //when a different one is clicked, questions from that array should be shown only

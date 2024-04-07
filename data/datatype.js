@@ -53,6 +53,9 @@ const videoGameQuestions = [
   },
   {
     category: 'Video Game', text: 'In various fighting games, characters have their own theme songs. What is the name of the theme song of Chaos from Under Night Inbirth?', correctAnswer: 'Erudite Eyes', incorrectAnswer1: 'Unseen Entities', incorrectAnswer2: 'Beat Eat Nest'
+  },
+  {
+    category: 'Video Game', text: 'There are a ton of references to various supers. One is the raging demon super, done by Akuma from Street Fighter. Which Thems Fightin Herds character has this as a level 3 super?', correctAnswer: 'Pom', incorrectAnswer1: 'Paprika', incorrectAnswer2: 'Tianhuo'
   }
 ]
 
@@ -62,6 +65,9 @@ const musicQuestions = [
   },
   {
     category: 'Music', text: 'The song A Corpse In The Trunk by Nightcrawler is a remix of an old song from what game?', correctAnswer: 'Perfect Dark', incorrectAnswer1: 'GoldenEye 007', incorrectAnswer2: 'Smash Bros'
+  },
+  {
+    category: 'Music', text: 'Which of these anime songs is the opening song for the anime known as Death Note?', correctAnswer: 'The World', incorrectAnswer1: 'Akahitoha', incorrectAnswer2: 'Proof Of Myself'
   }
 ]
 function getRandomQuestion(categoryName) {
@@ -77,21 +83,21 @@ function getRandomMiscQuestion(categoryName) {
 
   })
 
-  return miscQuestion
+  return miscQuestions[Math.floor(Math.random() * miscQuestions.length)]
 }
 function getRandomVideoGameQuestion(categoryName) {
   
   let videoGameQuestion = videoGameQuestions.map((videoGameQuestion) => {
     return videoGameQuestion.category = categoryName
   })
-  return videoGameQuestion
+  return videoGameQuestions[Math.floor(Math.random() * videoGameQuestions.length)]
 }
 
 function getRandomMusicQuestion(categoryName) {
   let musicGameQuestion = musicQuestions.map((musicQuestion) => {
     return musicQuestion.category = categoryName
   })
-  return musicGameQuestion
+  return musicQuestions[Math.floor(Math.random() * musicQuestions.length)]
 }
 
 
