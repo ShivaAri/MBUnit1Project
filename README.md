@@ -18,10 +18,10 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 
 ## `Technologies Used`
 
-..Css
-..Javascript
-..HTML
-..Git
+.. Css
+.. Javascript
+.. HTML
+.. Git
 
 
 ### `Credits`
