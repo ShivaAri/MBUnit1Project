@@ -15,7 +15,6 @@ const handleReset = function() {
 /*--------------- Variables (state) ----------------*/
 let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, incorrectAnswer1, incorrectAnswer2, winner, questionCard, button
 let timeLeft = 120
-const questions = []
 const miscQuestions = []
 const videoGameQuestions = []
 const musicQuestions = []
@@ -27,7 +26,7 @@ let categoryName
 
 
 /*------------- Cached Element References -----------*/
-const answerEl = document.getElementById('answer-count')
+
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
