@@ -7,6 +7,7 @@ const whoWantSomeDuckSound = new Audio('../audio/Who want some duck.mp3')
 const shockSound = new Audio('../audio/shock.mp3')
 const ohSound = new Audio('../audio/OH.mp3')
 const areYouMadSound = new Audio('../audio/Are You mad.mp3')
+const holdItBusterSound = new Audio('../audio/Hold It Buster.mp3')
 
 const handleReset = function() {
   init()
@@ -170,12 +171,12 @@ function handleClick(evt) {
     ohSound.play()
   } else {
     messageEl.textContent = "Incorrect. Try again!"
-    areYouMadSound.volume = .1
-    areYouMadSound.play()
+    holdItBusterSound.volume = .09
+    holdItBusterSound.play()
     incorrectAnswer = incorrectAnswer + 1
   }
   render()
-  
+  checkForWinner()
 }
 
 
