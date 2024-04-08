@@ -1,6 +1,6 @@
 # `Kathakali Du Toribia!`
 
-## `Screenshot:` ![alt text](./assets/Screenshot%202024-04-04%20at%203.38.55 PM.png)
+## `Screenshot:` ![alt text](<assets/Screenshot 2024-04-08 at 7.46.51 AM.png>)
 
 
 
