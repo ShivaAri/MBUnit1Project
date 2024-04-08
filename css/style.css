@@ -98,3 +98,8 @@ footer {
 h2 {
   justify-content: center;
 }
+
+.card {
+  padding: 10px 30px;
+
+}

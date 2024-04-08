@@ -38,7 +38,6 @@ const questionContainer = document.querySelector('#question-container')
 const miscQuestionBtn = document.querySelector('#misc-question-button')
 const videoGameQuestionBtn = document.querySelector('#videogame-question-button')
 const musicQuestionBtn = document.querySelector('#music-question-button')
-const buttonContainer = document.querySelector('#button-container')
 /*----------------- Event Listeners ----------------*/
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
@@ -72,7 +71,7 @@ function init() {
     }
     
   }, 1000)
-  
+  showMessage()
 }
 
 function createMiscQuestion() {
