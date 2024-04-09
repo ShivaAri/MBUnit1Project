@@ -13,7 +13,7 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let  timerIntervalId, correctAnswer, incorrectAnswer, winner
+let  timerIntervalId, correctAnswers, incorrectAnswers, winner
 const timeLeft = 120
 const miscQuestions = []
 const videoGameQuestions = []
@@ -29,8 +29,7 @@ const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
-const resetButtonContainer = document.querySelector('.reset-button-container')
-const resetBtn = document.getElementById("reset-button")
+const resetBtnEl = document.getElementById("reset-button")
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const miscQuestionBtn = document.querySelector('#misc-question-button')
@@ -40,7 +39,7 @@ const musicQuestionBtn = document.querySelector('#music-question-button')
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
 incorrectBtn2.addEventListener('click', handleClick)
-resetBtn.addEventListener('click', init)
+resetBtnEl.addEventListener('click', init)
 miscQuestionBtn.addEventListener('click', createMiscQuestion)
 musicQuestionBtn.addEventListener('click', createMusicGameQuestion)
 videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
@@ -50,13 +49,11 @@ init()
 
 
 function init() {
-  render()
-  correctAnswer = 0
-  incorrectAnswer = 0
+  correctAnswers = 0
   winner = false
   let timeLeft = 120
   questionContainer.innerHTML = ''
-  checkForWinner()
+  messageEl.textContent = 'Good Luck!'
   clearInterval(timer)
   timer = setInterval(function() {
     countdownEl.textContent = timeLeft + ' seconds remain...'
@@ -70,11 +67,12 @@ function init() {
     
   }, 1000)
   showMessage()
+  render()
 }
 
 function createMiscQuestion() {
-  const newMiscQuestions = getRandomMiscQuestion()
-  miscQuestions.push(newMiscQuestions)
+  const newMiscQuestion = getRandomMiscQuestion()
+  miscQuestions.push(newMiscQuestion)
   render()
 }
 function render() {
@@ -95,14 +93,14 @@ function render() {
 }
 
 function createMusicGameQuestion() {
-  const newMusicQuestions = getRandomMusicQuestion()
-  musicQuestions.push(newMusicQuestions)
+  const newMusicQuestion = getRandomMusicQuestion()
+  musicQuestions.push(newMusicQuestion)
   render()
 }
 
 function createVideoGameQuestion() {
-  const newVideoGameQuestions = getRandomVideoGameQuestion()
-  videoGameQuestions.push(newVideoGameQuestions)
+  const newVideoGameQuestion = getRandomVideoGameQuestion()
+  videoGameQuestions.push(newVideoGameQuestion)
   render()
 }
 
@@ -162,8 +160,8 @@ function appendVideoGameQuestion(videoGameQuestion) {
 
 function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
-    correctAnswer = correctAnswer + 1
-    messageEl.textContent = `You are correct! ${correctAnswer} out of 8`
+    correctAnswers = correctAnswers + 1
+    messageEl.textContent = `You are correct! ${correctAnswers} out of 8`
     ohSound.volume = .05
     ohSound.play()
   } else {
@@ -178,7 +176,7 @@ function handleClick(evt) {
 
 
 function checkForWinner() {
-  if(correctAnswer === 8){
+  if(correctAnswers === 8){
     winner = true
     clearInterval(timer)
     
@@ -186,7 +184,7 @@ function checkForWinner() {
 }
 
 function displayWinMessage() {
-  if(correctAnswer === 8) {
+  if(correctAnswers === 8) {
     messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
     whoWantSomeDuckSound.volume = .08
     whoWantSomeDuckSound.play()
