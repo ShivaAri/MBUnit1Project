@@ -13,20 +13,18 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let gameInPlay, timerIntervalId, correctAnswer, incorrectAnswer, incorrectAnswer1, incorrectAnswer2, winner, questionCard, button
-let timeLeft = 120
+let  timerIntervalId, correctAnswer, incorrectAnswer, winner
+const timeLeft = 120
 const miscQuestions = []
 const videoGameQuestions = []
 const musicQuestions = []
 
 let timeoutId
 let timer
-let currentCategory
-let categoryName
+
 
 
 /*------------- Cached Element References -----------*/
-
 const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
@@ -56,7 +54,7 @@ function init() {
   correctAnswer = 0
   incorrectAnswer = 0
   winner = false
-  timeLeft = 120
+  let timeLeft = 120
   questionContainer.innerHTML = ''
   checkForWinner()
   clearInterval(timer)
@@ -64,7 +62,7 @@ function init() {
     countdownEl.textContent = timeLeft + ' seconds remain...'
     timeLeft -= 1
     if (timeLeft < 0) {
-      countdownEl.textContent = "Time is Up! Were you entertained?"
+      countdownEl.textContent = "Time is Up! You lose! Good day"
       clearInterval(timer)
       shockSound.volume = .07
       shockSound.play()
@@ -93,7 +91,7 @@ function render() {
     appendVideoGameQuestion(videoGameQuestion)
   })
 
-  updateMessage()
+  displayWinMessage()
 }
 
 function createMusicGameQuestion() {
@@ -110,7 +108,7 @@ function createVideoGameQuestion() {
 
 
 function showMessage(message) {
-  message.textContent = message
+  messageEl.textContent = message
   render()
 }
 
@@ -165,7 +163,7 @@ function appendVideoGameQuestion(videoGameQuestion) {
 function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
     correctAnswer = correctAnswer + 1
-    messageEl.textContent = `That's the ticket~! You are correct! ${correctAnswer} out of 8`
+    messageEl.textContent = `You are correct! ${correctAnswer} out of 8`
     ohSound.volume = .05
     ohSound.play()
   } else {
@@ -187,7 +185,7 @@ function checkForWinner() {
   }
 }
 
-function updateMessage() {
+function displayWinMessage() {
   if(correctAnswer === 8) {
     messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
     whoWantSomeDuckSound.volume = .08
