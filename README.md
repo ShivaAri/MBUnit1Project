@@ -25,6 +25,10 @@ You will have unlimited tries for each question, but there is a time limit. 120 
 .. HTML
 .. Git
 
+## `References`
+[background](https://www.premiumbeat.com/blog/after-effects-ripple-effect-2/)
+Kathakali: Hindi for story play
+Toribia: Japanese for Trivia
 
 ## `Credits`
 

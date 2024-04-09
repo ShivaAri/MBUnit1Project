@@ -13,13 +13,13 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let  timerIntervalId, correctAnswers, incorrectAnswers, winner
+let correctAnswers, winner
 const timeLeft = 120
 const miscQuestions = []
 const videoGameQuestions = []
 const musicQuestions = []
 
-let timeoutId
+
 let timer
 
 
@@ -52,14 +52,13 @@ function init() {
   correctAnswers = 0
   winner = false
   let timeLeft = 120
-  questionContainer.innerHTML = ''
   messageEl.textContent = 'Good Luck!'
   clearInterval(timer)
   timer = setInterval(function() {
     countdownEl.textContent = timeLeft + ' seconds remain...'
     timeLeft -= 1
     if (timeLeft < 0) {
-      countdownEl.textContent = "Time is Up! You lose! Good day"
+      countdownEl.textContent = "Time is Up! You lose!"
       clearInterval(timer)
       shockSound.volume = .07
       shockSound.play()
@@ -80,15 +79,12 @@ function render() {
   miscQuestions.forEach(miscQuestion => {
     appendMiscQuestion(miscQuestion)
   })
-
   musicQuestions.forEach(musicQuestion => {
     appendMusicQuestion(musicQuestion)
   })
-
   videoGameQuestions.forEach(videoGameQuestion => {
     appendVideoGameQuestion(videoGameQuestion)
   })
-
   displayWinMessage()
 }
 
@@ -125,7 +121,7 @@ function appendMiscQuestion(miscQuestion) {
     <button class = 'incorrect-answer-button'>${miscQuestion.incorrectAnswer1}</button>
     <button class = 'incorrect-answer-button'>${miscQuestion.incorrectAnswer2}</button>
     </div>`
-    questionContainer.appendChild(miscQuestionCard)
+  questionContainer.appendChild(miscQuestionCard)
 }
 
 function appendMusicQuestion(musicQuestion) {
@@ -136,11 +132,11 @@ function appendMusicQuestion(musicQuestion) {
   musicQuestionCard.innerHTML = 
   `<div>
     <p>${musicQuestion.text}</p>
-    <button class = 'correct-answer-button'>${musicQuestion.correctAnswer}</button>
-    <button class = 'incorrect-answer-button'>${musicQuestion.incorrectAnswer1}</button>
     <button class = 'incorrect-answer-button'>${musicQuestion.incorrectAnswer2}</button>
+    <button class = 'incorrect-answer-button'>${musicQuestion.incorrectAnswer1}</button>
+    <button class = 'correct-answer-button'>${musicQuestion.correctAnswer}</button>
     </div>`
-    questionContainer.appendChild(musicQuestionCard)
+  questionContainer.appendChild(musicQuestionCard)
 }
 
 function appendVideoGameQuestion(videoGameQuestion) {
@@ -151,24 +147,23 @@ function appendVideoGameQuestion(videoGameQuestion) {
   videoGameQuestionCard.innerHTML =
   `<div>
     <p>${videoGameQuestion.text}</p>
-    <button class = 'correct-answer-button'>${videoGameQuestion.correctAnswer}</button>
     <button class = 'incorrect-answer-button'>${videoGameQuestion.incorrectAnswer1}</button>
+    <button class = 'correct-answer-button'>${videoGameQuestion.correctAnswer}</button>
     <button class = 'incorrect-answer-button'>${videoGameQuestion.incorrectAnswer2}</button>
     </div>`
-    questionContainer.appendChild(videoGameQuestionCard)
+  questionContainer.appendChild(videoGameQuestionCard)
 }
 
 function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
     correctAnswers = correctAnswers + 1
-    messageEl.textContent = `You are correct! ${correctAnswers} out of 8`
+    messageEl.textContent = `You are correct! ${correctAnswers} out of ${correctAnswers}`
     ohSound.volume = .05
     ohSound.play()
   } else {
     messageEl.textContent = "Incorrect. Try again!"
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
-    incorrectAnswer = incorrectAnswer + 1
   }
   render()
   checkForWinner()
