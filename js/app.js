@@ -19,7 +19,6 @@ const miscQuestions = []
 const videoGameQuestions = []
 const musicQuestions = []
 
-
 let timer
 
 
@@ -47,7 +46,7 @@ videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
 init()
 
 
-
+//complete reset
 function init() {
   correctAnswers = 0
   winner = false
@@ -65,8 +64,8 @@ function init() {
     }
     
   }, 1000)
-  showMessage()
   render()
+  checkForWinner()
 }
 
 function createMiscQuestion() {
@@ -160,10 +159,12 @@ function handleClick(evt) {
     messageEl.textContent = `You are correct! ${correctAnswers} out of ${correctAnswers}`
     ohSound.volume = .05
     ohSound.play()
-  } else {
+  } else if(evt.target.className === 'incorrect-answer-button1' || 'incorrect-answer-button2'){
     messageEl.textContent = "Incorrect. Try again!"
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
+  } else {
+
   }
   render()
   checkForWinner()
