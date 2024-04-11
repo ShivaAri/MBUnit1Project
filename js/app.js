@@ -13,13 +13,12 @@ const handleReset = function() {
   init()
 }
 /*--------------- Variables (state) ----------------*/
-let correctAnswers, winner
+let correctAnswers, winner, timer
 const timeLeft = 120
 const miscQuestions = []
 const videoGameQuestions = []
-const musicQuestions = []
+const musicQuestions = [] 
 
-let timer
 
 
 
@@ -34,6 +33,8 @@ const questionContainer = document.querySelector('#question-container')
 const miscQuestionBtn = document.querySelector('#misc-question-button')
 const videoGameQuestionBtn = document.querySelector('#videogame-question-button')
 const musicQuestionBtn = document.querySelector('#music-question-button')
+const mainQuestion = document.querySelector('#main-question')
+
 /*----------------- Event Listeners ----------------*/
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
@@ -46,7 +47,7 @@ videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
 init()
 
 
-//complete reset
+
 function init() {
   correctAnswers = 0
   winner = false
@@ -62,8 +63,8 @@ function init() {
       shockSound.volume = .07
       shockSound.play()
     }
-    
   }, 1000)
+
   render()
   checkForWinner()
 }
@@ -73,6 +74,7 @@ function createMiscQuestion() {
   miscQuestions.push(newMiscQuestion)
   render()
 }
+
 function render() {
   questionContainer.innerHTML = ''
   miscQuestions.forEach(miscQuestion => {
@@ -85,6 +87,7 @@ function render() {
     appendVideoGameQuestion(videoGameQuestion)
   })
   displayWinMessage()
+  console.log(render)
 }
 
 function createMusicGameQuestion() {
@@ -99,14 +102,10 @@ function createVideoGameQuestion() {
   render()
 }
 
-
 function showMessage(message) {
   messageEl.textContent = message
   render()
 }
-
-
-
 
 function appendMiscQuestion(miscQuestion) {
   let miscQuestionCard = document.createElement('div')
@@ -163,25 +162,22 @@ function handleClick(evt) {
     messageEl.textContent = "Incorrect. Try again!"
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
-  } else {
-
   }
   render()
   checkForWinner()
 }
 
-
 function checkForWinner() {
   if(correctAnswers === 8){
     winner = true
     clearInterval(timer)
-    
   }
 }
 
+
 function displayWinMessage() {
   if(correctAnswers === 8) {
-    messageEl.textContent = 'Congratulations! You are a Trivia Machine!'
+    messageEl.textContent = 'Congratulations! You win!'
     whoWantSomeDuckSound.volume = .08
     whoWantSomeDuckSound.play()
   } 
