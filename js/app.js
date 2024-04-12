@@ -77,6 +77,7 @@ function handlePlayButton() {
     }
   }, 1000)
   render()
+  showMessage()
 }
 
 
