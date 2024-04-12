@@ -36,12 +36,14 @@ Toribia: Japanese for Trivia
 [Hold It Buster](https://www.youtube.com/watch?v=RKzH42UqKZg)
 [Who Want Some Duck](https://www.youtube.com/watch?v=iLphISTTlhk)
 [OH](https://www.youtube.com/watch?v=7di7oyF7YLU&list=PL2fJy5iu3fAMX1pG5mmdbbHourkYkg3-F&index=2)
+
 ## `Credits`
 
 [Credit heavily to MDN](https://developer.mozilla.org/en-US/)
 
 
 ## `Recent Changes`
+
 Recently got all three buttons to work.
 
 Modified the styling of the page.

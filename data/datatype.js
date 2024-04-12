@@ -16,7 +16,7 @@ const miscQuestions = [
     text: 'Which classic anime showcases an Inu Hanyo and his group on a mission to restore the Shikon Jewel?', incorrectAnswer1: 'Kill la Kill', correctAnswer: 'Inuyasha', incorrectAnswer2: 'Ghost Sweeper Mikami'
   },
   {
-    text: 'What old tv show had the setting of Endsville?', incorrectAnswer: 'Dexters Laboratory', incorrectAnswer2: 'Camp Lazlo', correctAnswer: 'The Grim Adventures of Billy & Mandy'
+    text: 'What old tv show had the setting of Endsville?', incorrectAnswer1: 'Dexters Laboratory', incorrectAnswer2: 'Camp Lazlo', correctAnswer: 'The Grim Adventures of Billy & Mandy'
   }
 ]
 

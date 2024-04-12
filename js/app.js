@@ -9,17 +9,15 @@ const ohSound = new Audio('../audio/OH.mp3')
 const areYouMadSound = new Audio('../audio/Are You mad.mp3')
 const holdItBusterSound = new Audio('../audio/Hold It Buster.mp3')
 
-const handleReset = function() {
-  init()
-}
+
 /*--------------- Variables (state) ----------------*/
-let correctAnswers, winner, timer
+let correctAnswers, winner, timer, board
 const timeLeft = 120
 const miscQuestions = []
 const videoGameQuestions = []
 const musicQuestions = [] 
-
-
+const currentQuestion = {}
+let gameIsInPlay
 
 
 /*------------- Cached Element References -----------*/
@@ -27,14 +25,16 @@ const messageEl = document.getElementById('message')
 const correctBtn = document.getElementById('correct-answer-button')
 const incorrectBtn1 = document.getElementById('incorrect-answer-button1')
 const incorrectBtn2 = document.getElementById('incorrect-answer-button2')
-const resetBtnEl = document.getElementById("reset-button")
+const resetBtnEl = document.getElementById('reset-button')
 const countdownEl = document.getElementById('countdown')
 const questionContainer = document.querySelector('#question-container')
 const miscQuestionBtn = document.querySelector('#misc-question-button')
 const videoGameQuestionBtn = document.querySelector('#videogame-question-button')
 const musicQuestionBtn = document.querySelector('#music-question-button')
-const mainQuestion = document.querySelector('#main-question')
-
+const resetBtnContainer = document.querySelector('.reset-button-container')
+const playBtnContainer = document.querySelector('.play-button-container')
+const playBtn = document.getElementById('play-button')
+console.log(playBtn)
 /*----------------- Event Listeners ----------------*/
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
@@ -43,17 +43,24 @@ resetBtnEl.addEventListener('click', init)
 miscQuestionBtn.addEventListener('click', createMiscQuestion)
 musicQuestionBtn.addEventListener('click', createMusicGameQuestion)
 videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
+console.log(playBtnContainer)
+playBtnContainer.addEventListener('click', handlePlayButton)
 /*------------------- Functions ---------------------*/
 init()
 
 
+// When init is called, set state variables (one of which would be the current question being asked) back to their initial values, then call render to display that state on the screen.
 
+// When rendering the game, display all the elements dynamically so that there is no overflow, eliminating the need to scroll
 function init() {
   correctAnswers = 0
+  gameIsInPlay = false
   winner = false
   let timeLeft = 120
   messageEl.textContent = 'Good Luck!'
+  board = null
   clearInterval(timer)
+  questionContainer.innerHTML = ''
   timer = setInterval(function() {
     countdownEl.textContent = timeLeft + ' seconds remain...'
     timeLeft -= 1
@@ -64,9 +71,19 @@ function init() {
       shockSound.play()
     }
   }, 1000)
-
+  
   render()
   checkForWinner()
+}
+
+function handlePlayButton() {
+  gameIsInPlay = true
+  render()
+}
+
+function handleReset() {
+  gameIsInPlay = false
+  render()
 }
 
 function createMiscQuestion() {
@@ -76,7 +93,12 @@ function createMiscQuestion() {
 }
 
 function render() {
-  questionContainer.innerHTML = ''
+  if(gameIsInPlay) {
+    resetBtnContainer.style.display = ''
+    playBtnContainer.style.display = 'none'
+
+    questionContainer.innerHTML = ''
+  
   miscQuestions.forEach(miscQuestion => {
     appendMiscQuestion(miscQuestion)
   })
@@ -87,7 +109,11 @@ function render() {
     appendVideoGameQuestion(videoGameQuestion)
   })
   displayWinMessage()
-  console.log(render)
+  } else {
+    console.log(resetBtnContainer)
+    resetBtnContainer.style.display = 'none'
+    playBtnContainer.style.display = ''
+  }
 }
 
 function createMusicGameQuestion() {
@@ -105,6 +131,7 @@ function createVideoGameQuestion() {
 function showMessage(message) {
   messageEl.textContent = message
   render()
+  
 }
 
 function appendMiscQuestion(miscQuestion) {
@@ -135,6 +162,7 @@ function appendMusicQuestion(musicQuestion) {
     <button class = 'correct-answer-button'>${musicQuestion.correctAnswer}</button>
     </div>`
   questionContainer.appendChild(musicQuestionCard)
+  
 }
 
 function appendVideoGameQuestion(videoGameQuestion) {
@@ -165,6 +193,7 @@ function handleClick(evt) {
   }
   render()
   checkForWinner()
+  
 }
 
 function checkForWinner() {
@@ -172,6 +201,7 @@ function checkForWinner() {
     winner = true
     clearInterval(timer)
   }
+  
 }
 
 
@@ -182,5 +212,6 @@ function displayWinMessage() {
     whoWantSomeDuckSound.play()
   } 
   checkForWinner()
+  
 }
 
