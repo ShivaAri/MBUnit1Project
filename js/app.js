@@ -182,10 +182,12 @@ function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
     
     correctAnswers = correctAnswers + 1
+    totalAnswers = totalAnswers + 1
     messageEl.textContent = `You are correct! ${correctAnswers} out of ${totalAnswers}`
     ohSound.volume = .05
     ohSound.play()
   } else if(evt.target.className === 'incorrect-answer-button1' || 'incorrect-answer-button2'){
+    totalAnswers = totalAnswers + 1
     messageEl.textContent = `Incorrect. Try again! You have answered ${correctAnswers} out of ${totalAnswers} correctly.`
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
