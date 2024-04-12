@@ -12,11 +12,10 @@ const holdItBusterSound = new Audio('../audio/Hold It Buster.mp3')
 
 /*--------------- Variables (state) ----------------*/
 let correctAnswers, winner, timer, board
-const timeLeft = 120
-const miscQuestions = []
-const videoGameQuestions = []
-const musicQuestions = [] 
-const currentQuestion = {}
+let timeLeft = 120
+let miscQuestions
+let videoGameQuestions
+let musicQuestions
 let gameIsInPlay
 
 
@@ -48,11 +47,10 @@ playBtnContainer.addEventListener('click', handlePlayButton)
 /*------------------- Functions ---------------------*/
 init()
 
-
-// When init is called, set state variables (one of which would be the current question being asked) back to their initial values, then call render to display that state on the screen.
-
-// When rendering the game, display all the elements dynamically so that there is no overflow, eliminating the need to scroll
 function init() {
+  miscQuestions = []
+  musicQuestions = []
+  videoGameQuestions = []
   correctAnswers = 0
   gameIsInPlay = false
   winner = false
@@ -61,6 +59,13 @@ function init() {
   board = null
   clearInterval(timer)
   questionContainer.innerHTML = ''
+  render()
+  checkForWinner()
+}
+
+function handlePlayButton() {
+  gameIsInPlay = true
+  timeLeft = 120
   timer = setInterval(function() {
     countdownEl.textContent = timeLeft + ' seconds remain...'
     timeLeft -= 1
@@ -71,13 +76,6 @@ function init() {
       shockSound.play()
     }
   }, 1000)
-  
-  render()
-  checkForWinner()
-}
-
-function handlePlayButton() {
-  gameIsInPlay = true
   render()
 }
 
@@ -135,6 +133,7 @@ function showMessage(message) {
 }
 
 function appendMiscQuestion(miscQuestion) {
+  questionContainer.innerHTML = ''
   let miscQuestionCard = document.createElement('div')
   miscQuestionCard.className = `card`
   miscQuestionCard.addEventListener('click', handleClick)
@@ -150,6 +149,7 @@ function appendMiscQuestion(miscQuestion) {
 }
 
 function appendMusicQuestion(musicQuestion) {
+  questionContainer.innerHTML = ''
   let musicQuestionCard = document.createElement('div')
   musicQuestionCard.className = `card`
   musicQuestionCard.addEventListener('click', handleClick)
@@ -166,6 +166,7 @@ function appendMusicQuestion(musicQuestion) {
 }
 
 function appendVideoGameQuestion(videoGameQuestion) {
+  questionContainer.innerHTML = ''
   let videoGameQuestionCard = document.createElement('div')
   videoGameQuestionCard.className = `card`
   videoGameQuestionCard.addEventListener('click', handleClick)
@@ -182,6 +183,7 @@ function appendVideoGameQuestion(videoGameQuestion) {
 
 function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
+    
     correctAnswers = correctAnswers + 1
     messageEl.textContent = `You are correct! ${correctAnswers} out of ${correctAnswers}`
     ohSound.volume = .05
