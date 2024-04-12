@@ -8,6 +8,7 @@ const shockSound = new Audio('../audio/shock.mp3')
 const ohSound = new Audio('../audio/OH.mp3')
 const areYouMadSound = new Audio('../audio/Are You mad.mp3')
 const holdItBusterSound = new Audio('../audio/Hold It Buster.mp3')
+const ohSardinesSound = new Audio('../audio/valvatorez_sardine.mp3')
 
 
 /*--------------- Variables (state) ----------------*/
@@ -186,8 +187,8 @@ function handleClick(evt) {
   } else if(evt.target.className === 'incorrect-answer-button1' || 'incorrect-answer-button2'){
     messageEl.textContent = `Incorrect. Try again! You have answered ${correctAnswers} out of ${totalAnswers} correctly!`
     totalAnswers = totalAnswers + 1
-    holdItBusterSound.volume = .09
-    holdItBusterSound.play()
+    ohSardinesSound.volume = .05
+    ohSardinesSound.play()
   } 
   render()
   checkForWinner()
