@@ -52,7 +52,7 @@ const musicQuestions = [
     text: 'The song A Corpse In The Trunk by Nightcrawler is a remix of an old song from what game?', correctAnswer: 'Perfect Dark', incorrectAnswer1: 'GoldenEye 007', incorrectAnswer2: 'Smash Bros'
   },
   {
-    text: 'Which of these anime songs is the opening song for the anime known as Death Note?', correctAnswer: 'The World', incorrectAnswer1: 'Akahitoha', incorrectAnswer2: 'Proof Of Myself'
+    text: 'Which of these anime songs is the opening song for the anime known as Death Note?',  incorrectAnswer1: 'Akahitoha', correctAnswer: 'The World', incorrectAnswer2: 'Proof Of Myself'
   },
   {
     text: 'In the anime known as Neon Genesis Evangelion, what is the name of the intro theme?', correctAnswer: 'Cruel Angels Thesis', incorrectAnswer1: 'Wave', incorrectAnswer2: 'Ultimate Senpai'
