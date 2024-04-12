@@ -17,6 +17,9 @@ const miscQuestions = [
   },
   {
     text: 'What old tv show had the setting of Endsville?', incorrectAnswer1: 'Dexters Laboratory', incorrectAnswer2: 'Camp Lazlo', correctAnswer: 'The Grim Adventures of Billy & Mandy'
+  },
+  {
+    text: 'Which old Cartoon Network show was a bit of an acid trip in the case of various apparitions and other ghoulies?', incorrectAnswer1: 'Fosters Home For Imaginary Friends', incorrectAnswer2: 'Codename:Kids Next Door', correctAnswer: 'Courage The Cowardly Dog'
   }
 ]
 

@@ -33,7 +33,6 @@ const musicQuestionBtn = document.querySelector('#music-question-button')
 const resetBtnContainer = document.querySelector('.reset-button-container')
 const playBtnContainer = document.querySelector('.play-button-container')
 const playBtn = document.getElementById('play-button')
-console.log(playBtn)
 /*----------------- Event Listeners ----------------*/
 correctBtn.addEventListener('click', handleClick)
 incorrectBtn1.addEventListener('click', handleClick)
@@ -42,7 +41,6 @@ resetBtnEl.addEventListener('click', init)
 miscQuestionBtn.addEventListener('click', createMiscQuestion)
 musicQuestionBtn.addEventListener('click', createMusicGameQuestion)
 videoGameQuestionBtn.addEventListener('click', createVideoGameQuestion)
-console.log(playBtnContainer)
 playBtnContainer.addEventListener('click', handlePlayButton)
 /*------------------- Functions ---------------------*/
 init()
@@ -108,7 +106,7 @@ function render() {
   })
   displayWinMessage()
   } else {
-    console.log(resetBtnContainer)
+
     resetBtnContainer.style.display = 'none'
     playBtnContainer.style.display = ''
   }
@@ -182,6 +180,10 @@ function appendVideoGameQuestion(videoGameQuestion) {
 }
 
 function handleClick(evt) {
+  if(gameIsInPlay === false) {
+    return
+  }
+  
   if(evt.target.className === 'correct-answer-button') {
     
     correctAnswers = correctAnswers + 1
@@ -192,7 +194,7 @@ function handleClick(evt) {
     messageEl.textContent = "Incorrect. Try again!"
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
-  }
+  } 
   render()
   checkForWinner()
   
@@ -202,6 +204,7 @@ function checkForWinner() {
   if(correctAnswers === 8){
     winner = true
     clearInterval(timer)
+    gameIsInPlay = false
   }
   
 }
