@@ -70,12 +70,12 @@ function handlePlayButton() {
     if (timeLeft < 0) {
       countdownEl.textContent = "Time is Up! You lose!"
       clearInterval(timer)
+      gameIsInPlay = false
       shockSound.volume = .07
       shockSound.play()
     }
   }, 1000)
   render()
-  showMessage()
 }
 
 function createMiscQuestion() {
@@ -120,11 +120,7 @@ function createVideoGameQuestion() {
   render()
 }
 
-function showMessage(message) {
-  messageEl.textContent = message
-  render()
-  
-}
+
 
 function appendMiscQuestion(miscQuestion) {
   questionContainer.innerHTML = ''
@@ -136,8 +132,8 @@ function appendMiscQuestion(miscQuestion) {
   `<div>
     <p>${miscQuestion.text}</p>
     <button class = 'correct-answer-button'>${miscQuestion.correctAnswer}</button>
-    <button class = 'incorrect-answer-button'>${miscQuestion.incorrectAnswer1}</button>
-    <button class = 'incorrect-answer-button'>${miscQuestion.incorrectAnswer2}</button>
+    <button class = 'incorrect-answer-button1'>${miscQuestion.incorrectAnswer1}</button>
+    <button class = 'incorrect-answer-button2'>${miscQuestion.incorrectAnswer2}</button>
     </div>`
   questionContainer.appendChild(miscQuestionCard)
 }
@@ -151,8 +147,8 @@ function appendMusicQuestion(musicQuestion) {
   musicQuestionCard.innerHTML = 
   `<div>
     <p>${musicQuestion.text}</p>
-    <button class = 'incorrect-answer-button'>${musicQuestion.incorrectAnswer2}</button>
-    <button class = 'incorrect-answer-button'>${musicQuestion.incorrectAnswer1}</button>
+    <button class = 'incorrect-answer-button2'>${musicQuestion.incorrectAnswer2}</button>
+    <button class = 'incorrect-answer-button1'>${musicQuestion.incorrectAnswer1}</button>
     <button class = 'correct-answer-button'>${musicQuestion.correctAnswer}</button>
     </div>`
   questionContainer.appendChild(musicQuestionCard)
@@ -168,9 +164,9 @@ function appendVideoGameQuestion(videoGameQuestion) {
   videoGameQuestionCard.innerHTML =
   `<div>
     <p>${videoGameQuestion.text}</p>
-    <button class = 'incorrect-answer-button'>${videoGameQuestion.incorrectAnswer1}</button>
+    <button class = 'incorrect-answer-button1'>${videoGameQuestion.incorrectAnswer1}</button>
     <button class = 'correct-answer-button'>${videoGameQuestion.correctAnswer}</button>
-    <button class = 'incorrect-answer-button'>${videoGameQuestion.incorrectAnswer2}</button>
+    <button class = 'incorrect-answer-button2'>${videoGameQuestion.incorrectAnswer2}</button>
     </div>`
   questionContainer.appendChild(videoGameQuestionCard)
 }
