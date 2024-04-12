@@ -1,7 +1,4 @@
 
-const questions = [
-  
-]
 const miscQuestions = [
   {
     text: 'In what year was Shin Megami Tensei born?', correctAnswer: '1985', incorrectAnswer1: '1967', incorrectAnswer2: '1995'

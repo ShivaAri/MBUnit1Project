@@ -80,8 +80,6 @@ function handlePlayButton() {
   showMessage()
 }
 
-
-
 function createMiscQuestion() {
   const newMiscQuestion = getRandomMiscQuestion()
   miscQuestions.push(newMiscQuestion)
@@ -192,7 +190,7 @@ function handleClick(evt) {
     ohSound.play()
   } else if(evt.target.className === 'incorrect-answer-button1' || 'incorrect-answer-button2'){
     messageEl.textContent = `Incorrect. Try again! You have answered ${correctAnswers} out of ${totalAnswers} correctly!`
-    totalAnswers = totalAnswers + 1
+    totalAnswers = totalAnswers += 1
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
   } 
