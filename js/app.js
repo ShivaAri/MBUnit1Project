@@ -11,7 +11,7 @@ const holdItBusterSound = new Audio('../audio/Hold It Buster.mp3')
 
 
 /*--------------- Variables (state) ----------------*/
-let correctAnswers, winner, timer, board
+let correctAnswers, winner, timer
 let timeLeft = 120
 let miscQuestions
 let videoGameQuestions
@@ -56,11 +56,9 @@ function init() {
   winner = false
   let timeLeft = 120
   messageEl.textContent = 'Good Luck!'
-  board = null
   clearInterval(timer)
   questionContainer.innerHTML = ''
   render()
-  checkForWinner()
 }
 
 function handlePlayButton() {

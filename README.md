@@ -13,7 +13,7 @@ When an answer is clicked, a sound effect plays, indicating that it is the corre
 You will have unlimited tries for each question, but there is a time limit. 120 seconds is all you have to completely attain the 8 correct answers you need for victory.
 
 
-## [Play Kathakali Du Toribia here~!](https://kathakalidutoribia.netlify.app/)
+## [Play Kathakali Du Toribia here!](https://kathakalidutoribia.netlify.app/)
 
 ## [Planning Materials](https://docs.google.com/document/d/1HyLX8wB-DJofzpXbUmaJSsSOaOk_vudVTBsokaiTKss/edit)
 
