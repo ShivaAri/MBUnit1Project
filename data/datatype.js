@@ -20,6 +20,9 @@ const miscQuestions = [
   },
   {
     text: 'Which old Cartoon Network show was a bit of an acid trip in the case of various apparitions and other ghoulies?', incorrectAnswer1: 'Fosters Home For Imaginary Friends', incorrectAnswer2: 'Codename:Kids Next Door', correctAnswer: 'Courage The Cowardly Dog'
+  },
+  {
+    text: 'This old Nickelodeon show has a location known as Amity Park within it. Which show is it?', incorrectAnswer2: 'The Mighty B!', correctAnswer: 'Danny Phantom', incorrectAnswer1: 'Winx Club'
   }
 ]
 

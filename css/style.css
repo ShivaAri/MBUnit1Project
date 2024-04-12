@@ -52,6 +52,7 @@ nav {
 }
 
 h3 {
+  display: flex;
   color: rgb(255, 255, 255);
   border: none;
   border-radius: 20px;
@@ -60,9 +61,11 @@ h3 {
   font-size: 25px;
   align-items: center;
   padding-left: 10px;
+  padding: 4px;
   margin-left: 90px;
   margin-right: 90px;
 }
+
 
 h1 {
   background-color: rgba(255, 255, 255, 0.899);
@@ -71,6 +74,7 @@ h1 {
   align-items: center;
   font-size: 24px;
   padding: 6px;
+  
 }
 
 .button-container {
