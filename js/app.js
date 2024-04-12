@@ -18,7 +18,6 @@ let videoGameQuestions
 let musicQuestions
 let gameIsInPlay
 let incorrectAnswers
-let totalAnswers
 
 
 /*------------- Cached Element References -----------*/
@@ -53,7 +52,6 @@ function init() {
   videoGameQuestions = []
   correctAnswers = 0
   incorrectAnswers = 0
-  totalAnswers = 0
   gameIsInPlay = false
   winner = false
   let timeLeft = 120
@@ -80,6 +78,8 @@ function handlePlayButton() {
   }, 1000)
   render()
 }
+
+
 
 function createMiscQuestion() {
   const newMiscQuestion = getRandomMiscQuestion()
@@ -123,7 +123,11 @@ function createVideoGameQuestion() {
   render()
 }
 
-
+function showMessage(message) {
+  messageEl.textContent = message
+  render()
+  
+}
 
 function appendMiscQuestion(miscQuestion) {
   questionContainer.innerHTML = ''
@@ -182,13 +186,11 @@ function handleClick(evt) {
   if(evt.target.className === 'correct-answer-button') {
     
     correctAnswers = correctAnswers + 1
-    totalAnswers = totalAnswers + 1
-    messageEl.textContent = `You are correct! ${correctAnswers} out of ${totalAnswers}`
+    messageEl.textContent = `You are correct! ${correctAnswers} out of ${correctAnswers}`
     ohSound.volume = .05
     ohSound.play()
   } else if(evt.target.className === 'incorrect-answer-button1' || 'incorrect-answer-button2'){
-    totalAnswers = totalAnswers + 1
-    messageEl.textContent = `Incorrect. Try again! You have answered ${correctAnswers} out of ${totalAnswers} correctly.`
+    messageEl.textContent = `Incorrect. Try again! You have answered ${inc}`
     holdItBusterSound.volume = .09
     holdItBusterSound.play()
   } 
